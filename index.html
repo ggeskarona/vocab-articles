@@ -829,9 +829,22 @@
   }
 
   const noteList = document.getElementById("noteList");
+
+  // How many articles are currently visible in the sidebar.
+  // Reveals one new article each time the user finishes a quiz.
+  function visibleCount() {
+    const completed = getCompleted();
+    let maxCompletedIdx = -1;
+    articleData.articles.forEach((a, i) => {
+      if (completed.has(a.id) && i > maxCompletedIdx) maxCompletedIdx = i;
+    });
+    return Math.min(maxCompletedIdx + 2, articleData.articles.length);
+  }
+
   function renderSidebar() {
     const completed = getCompleted();
-    noteList.innerHTML = articleData.articles.map(a => {
+    const visible = articleData.articles.slice(0, visibleCount());
+    noteList.innerHTML = visible.map(a => {
       const cls = [];
       if (a.id === currentArticle.id) cls.push("active");
       if (completed.has(a.id)) cls.push("completed");
