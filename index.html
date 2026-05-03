@@ -695,6 +695,7 @@
   let questions = [];
   let qIndex = 0;
   let qScore = 0;
+  let wrongQuestions = [];
 
   function shuffle(arr) {
     const a = [...arr];
@@ -712,10 +713,15 @@
     lockIcon.classList.toggle("visible", locked);
   }
 
-  function startQuiz() {
-    questions = shuffle(quizGroups).slice(0, 8);
+  function startQuiz(specificQuestions) {
+    if (specificQuestions && specificQuestions.length) {
+      questions = shuffle(specificQuestions);
+    } else {
+      questions = shuffle(quizGroups).slice(0, 8);
+    }
     qIndex = 0;
     qScore = 0;
+    wrongQuestions = [];
     readingArea.style.display = "none";
     quizArea.classList.add("active");
     lockLevels(true);
@@ -758,6 +764,7 @@
       feedback.textContent = `Correct. +${level} points`;
       flyPointsFromTo(clickedBtn, level);
     } else {
+      wrongQuestions.push(questions[qIndex]);
       feedback.textContent = `Not quite — the answer was: "${correct}"`;
     }
 
@@ -785,24 +792,27 @@
     markCompleted(currentArticle.id);
     renderSidebar();
     const nextArticle = findNextArticle();
+    const wrongList = [...wrongQuestions]; // capture before retry resets it
+
+    const retryLabel = wrongList.length === 1
+      ? "Try Again (1 missed)"
+      : `Try Again (${wrongList.length} missed)`;
 
     quizEl.innerHTML = `
       <div class="quiz-score">
         <div class="quiz-score-number">${qScore} / ${questions.length}</div>
         <div class="quiz-score-text">${scoreMessage(qScore, questions.length)}</div>
         <div class="quiz-controls" style="justify-content: center;">
-          <button class="primary" id="retryQuiz">Try Again</button>
+          ${wrongList.length > 0 ? '<button class="primary" id="retryQuiz">' + retryLabel + '</button>' : ''}
           ${nextArticle ? '<button class="primary" id="nextArticle">Next Article →</button>' : ''}
-          <button class="ghost" id="backToArticle">Back to Article</button>
         </div>
       </div>
     `;
-    document.getElementById("retryQuiz").addEventListener("click", startQuiz);
-    document.getElementById("backToArticle").addEventListener("click", () => {
-      quizArea.classList.remove("active");
-      readingArea.style.display = "";
-      lockLevels(false);
-    });
+    if (wrongList.length > 0) {
+      document.getElementById("retryQuiz").addEventListener("click", () => {
+        startQuiz(wrongList);
+      });
+    }
     if (nextArticle) {
       document.getElementById("nextArticle").addEventListener("click", () => {
         loadArticleById(nextArticle.id);
