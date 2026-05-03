@@ -723,7 +723,7 @@
     } else {
       const articleId = currentArticle.id;
       const available = quizGroups.filter(g => !isAnswered(articleId, g.target));
-      pool = shuffle(available).slice(0, 8);
+      pool = shuffle(available);
     }
     if (pool.length === 0) {
       showAllMasteredScreen();
