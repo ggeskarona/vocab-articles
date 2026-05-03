@@ -487,9 +487,12 @@
     vocabSpans.forEach(s => {
       if (swapped) {
         const advanced = wordForLevel(s, level);
-        s.innerHTML = `${advanced}<sup class="badge">+${level}</sup>`;
+        const done = isAnswered(currentArticle.id, s.dataset.key);
+        s.innerHTML = done ? advanced : `${advanced}<sup class="badge">+${level}</sup>`;
         s.classList.add("swapped");
-        s.title = `Original: ${s.dataset.original}`;
+        s.title = done
+          ? `Original: ${s.dataset.original} (already mastered — no points available)`
+          : `Original: ${s.dataset.original}`;
       } else {
         s.textContent = s.dataset.original;
         s.classList.remove("swapped");
@@ -714,11 +717,19 @@
   }
 
   function startQuiz(specificQuestions) {
+    let pool;
     if (specificQuestions && specificQuestions.length) {
-      questions = shuffle(specificQuestions);
+      pool = shuffle(specificQuestions);
     } else {
-      questions = shuffle(quizGroups).slice(0, 8);
+      const articleId = currentArticle.id;
+      const available = quizGroups.filter(g => !isAnswered(articleId, g.target));
+      pool = shuffle(available).slice(0, 8);
     }
+    if (pool.length === 0) {
+      showAllMasteredScreen();
+      return;
+    }
+    questions = pool;
     qIndex = 0;
     qScore = 0;
     wrongQuestions = [];
@@ -726,6 +737,28 @@
     quizArea.classList.add("active");
     lockLevels(true);
     renderQuestion();
+  }
+
+  function showAllMasteredScreen() {
+    markCompleted(currentArticle.id);
+    renderSidebar();
+    const nextArticle = findNextArticle();
+    readingArea.style.display = "none";
+    quizArea.classList.add("active");
+    lockLevels(true);
+    quizEl.innerHTML = `
+      <div class="quiz-score">
+        <div class="quiz-score-text" style="margin-top: 24px;">You've mastered every vocab word on this article. ✓</div>
+        <div class="quiz-controls" style="justify-content: center;">
+          ${nextArticle ? '<button class="primary" id="nextArticle">Next Article →</button>' : '<div class="hint">All articles complete.</div>'}
+        </div>
+      </div>
+    `;
+    if (nextArticle) {
+      document.getElementById("nextArticle").addEventListener("click", () => {
+        loadArticleById(nextArticle.id);
+      });
+    }
   }
 
   function renderQuestion() {
@@ -763,6 +796,7 @@
       qScore++;
       feedback.textContent = `Correct. +${level} points`;
       flyPointsFromTo(clickedBtn, level);
+      markAnswered(currentArticle.id, questions[qIndex].target);
     } else {
       wrongQuestions.push(questions[qIndex]);
       feedback.textContent = `Not quite — the answer was: "${correct}"`;
@@ -836,6 +870,25 @@
   function findNextArticle() {
     const idx = articleData.articles.findIndex(a => a.id === currentArticle.id);
     return articleData.articles[idx + 1] || null;
+  }
+
+  // Track which vocab words have been correctly answered per article.
+  const ANSWERED_KEY = "notesAppAnswered";
+  function getAnswered() {
+    try { return JSON.parse(localStorage.getItem(ANSWERED_KEY) || "{}"); }
+    catch { return {}; }
+  }
+  function isAnswered(articleId, vocabKey) {
+    const m = getAnswered();
+    return Array.isArray(m[articleId]) && m[articleId].includes(vocabKey);
+  }
+  function markAnswered(articleId, vocabKey) {
+    const m = getAnswered();
+    if (!Array.isArray(m[articleId])) m[articleId] = [];
+    if (!m[articleId].includes(vocabKey)) {
+      m[articleId].push(vocabKey);
+      localStorage.setItem(ANSWERED_KEY, JSON.stringify(m));
+    }
   }
 
   const noteList = document.getElementById("noteList");
