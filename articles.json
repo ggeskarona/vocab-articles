@@ -45,6 +45,396 @@
         { "target": "strategy",    "correct": "a planned scheme or method",                   "distractors": ["an honest mistake", "a happy accident", "a casual joke"],                             "sentence": "It is a {strategy} life has invented more than once, in forms we are only beginning to {understand}." },
         { "target": "understand",  "correct": "to grasp the meaning of something",            "distractors": ["to forget completely", "to reject quickly", "to speak loudly"],                        "sentence": "It is a {strategy} life has invented more than once, in forms we are only beginning to {understand}." }
       ]
+    },
+
+    {
+      "id": "memory-of-crows",
+      "title": "The Memory of Crows",
+      "eyebrow": "Science · Reading Practice",
+      "byline": "Adapted nonfiction · ~290 words",
+      "date": "May 4, 2026",
+      "vocab": {
+        "underrated":    { "original": "underrated",    "l5": "overlooked", "l6": "underestimated", "l7": "undervalued",  "l8": "dismissed",     "l9": "disregarded",   "l10": "marginalized" },
+        "rivals":        { "original": "rivals",        "l5": "matches",    "l6": "equals",         "l7": "approaches",   "l8": "parallels",     "l9": "approximates",  "l10": "emulates" },
+        "documented":    { "original": "documented",    "l5": "recorded",   "l6": "noted",          "l7": "observed",     "l8": "chronicled",    "l9": "catalogued",    "l10": "substantiated" },
+        "fashion":       { "original": "fashion",       "l5": "make",       "l6": "build",          "l7": "craft",        "l8": "shape",         "l9": "construct",     "l10": "fabricate" },
+        "impossible":    { "original": "impossible",    "l5": "hopeless",   "l6": "unreachable",    "l7": "unattainable", "l8": "unfeasible",    "l9": "inconceivable", "l10": "insurmountable" },
+        "unusual":       { "original": "unusual",       "l5": "different",  "l6": "uncommon",       "l7": "distinctive",  "l8": "remarkable",    "l9": "exceptional",   "l10": "extraordinary" },
+        "remember":      { "original": "remember",      "l5": "recall",     "l6": "recognize",      "l7": "retain",       "l8": "identify",      "l9": "recollect",     "l10": "register" },
+        "silently":      { "original": "silently",      "l5": "quietly",    "l6": "noiselessly",    "l7": "wordlessly",   "l8": "soundlessly",   "l9": "voicelessly",   "l10": "inaudibly" },
+        "investigation": { "original": "investigation", "l5": "study",      "l6": "inquiry",        "l7": "examination",  "l8": "probing",       "l9": "scrutiny",      "l10": "inquest" },
+        "rethink":       { "original": "rethink",       "l5": "reconsider", "l6": "revisit",        "l7": "reexamine",    "l8": "reassess",      "l9": "reevaluate",    "l10": "reformulate" }
+      },
+      "paragraphs": [
+        "Crows are perhaps the most {underrated} thinkers in the animal world. They live near humans, blend into the background, and seem ordinary — yet behind those black eyes is a brain that {rivals} that of a chimpanzee.",
+        "Researchers in Seattle once {documented} a remarkable behavior. Volunteers wore strange masks while capturing and banding wild crows. The crows did not forget. Years later, those same volunteers were still being scolded and dive-bombed wherever they walked, even when they wore ordinary clothes. The masks alone were enough.",
+        "Crows can {fashion} tools out of twigs and leaves. They drop nuts onto roads and wait for cars to crack them. In one famous experiment, a crow named Betty bent a straight wire into a hook to retrieve food from a tube — a feat once thought {impossible} for any non-human animal.",
+        "What makes crows {unusual} is not just their cleverness, but their social memory. They {remember} faces, both kind and threatening, and they teach what they have learned to younger crows. A grudge held by one bird can outlast the lifetime of the human who offended it.",
+        "When a crow dies, the others sometimes gather. They circle the body {silently}, dropping sticks and stones near it before flying away. Scientists are not sure what these gatherings mean — perhaps a kind of {investigation}, perhaps something closer to grief. The crow forces us to {rethink} what intelligence looks like."
+      ],
+      "quizGroups": [
+        { "target": "underrated",    "correct": "valued less than it deserves",          "distractors": ["valued more than it deserves", "completely unknown to anyone", "broken or damaged"],         "sentence": "Crows are perhaps the most {underrated} thinkers in the animal world." },
+        { "target": "rivals",        "correct": "comes close to matching in quality",    "distractors": ["completely outperforms", "is much worse than", "is identical to"],                          "sentence": "Behind those black eyes is a brain that {rivals} that of a chimpanzee." },
+        { "target": "documented",    "correct": "carefully recorded and tracked",        "distractors": ["briefly mentioned and forgotten", "completely ignored", "loudly announced once"],            "sentence": "Researchers in Seattle once {documented} a remarkable behavior." },
+        { "target": "fashion",       "correct": "to make or shape something by hand",     "distractors": ["to destroy completely", "to find by accident", "to give away freely"],                       "sentence": "Crows can {fashion} tools out of twigs and leaves." },
+        { "target": "impossible",    "correct": "not able to be done",                    "distractors": ["very simple to do", "easy with practice", "expected and ordinary"],                         "sentence": "A feat once thought {impossible} for any non-human animal." },
+        { "target": "unusual",       "correct": "different from the usual",               "distractors": ["completely ordinary", "boring and dull", "easy and quick"],                                 "sentence": "What makes crows {unusual} is not just their cleverness, but their social memory." },
+        { "target": "remember",      "correct": "to keep in mind from the past",          "distractors": ["to forget completely", "to invent from scratch", "to ignore on purpose"],                    "sentence": "They {remember} faces, both kind and threatening." },
+        { "target": "silently",      "correct": "without making a sound",                 "distractors": ["loudly and clearly", "angrily and quickly", "carelessly and rudely"],                       "sentence": "They circle the body {silently}, dropping sticks and stones near it before flying away." },
+        { "target": "investigation", "correct": "a careful search for facts",             "distractors": ["a quick guess", "a casual conversation", "a planned celebration"],                          "sentence": "Scientists are not sure what these gatherings mean — perhaps a kind of {investigation}, perhaps something closer to grief." },
+        { "target": "rethink",       "correct": "to think about again from a new angle",  "distractors": ["to reject without thinking", "to forget completely", "to copy exactly"],                    "sentence": "The crow forces us to {rethink} what intelligence looks like." }
+      ]
+    },
+
+    {
+      "id": "voyager-long-goodbye",
+      "title": "The Long Goodbye",
+      "eyebrow": "Space · Reading Practice",
+      "byline": "Adapted nonfiction · ~290 words",
+      "date": "May 5, 2026",
+      "vocab": {
+        "launched":     { "original": "launched",     "l5": "started",   "l6": "began",        "l7": "initiated",   "l8": "deployed",    "l9": "dispatched",   "l10": "commenced" },
+        "initial":      { "original": "initial",      "l5": "first",     "l6": "early",        "l7": "beginning",   "l8": "preliminary", "l9": "inaugural",    "l10": "foundational" },
+        "transmitting": { "original": "transmitting", "l5": "sending",   "l6": "broadcasting", "l7": "relaying",    "l8": "dispatching", "l9": "emitting",     "l10": "communicating" },
+        "chance":       { "original": "chance",       "l5": "hope",      "l6": "odds",         "l7": "likelihood",  "l8": "probability", "l9": "possibility",  "l10": "prospect" },
+        "gesture":      { "original": "gesture",      "l5": "sign",      "l6": "act",          "l7": "expression",  "l8": "token",       "l9": "overture",     "l10": "salutation" },
+        "minuscule":    { "original": "minuscule",    "l5": "tiny",      "l6": "small",        "l7": "slight",      "l8": "negligible",  "l9": "infinitesimal","l10": "imperceptible" },
+        "entered":      { "original": "entered",      "l5": "reached",   "l6": "arrived in",   "l7": "passed into", "l8": "crossed into","l9": "penetrated",   "l10": "traversed" },
+        "preserve":     { "original": "preserve",     "l5": "save",      "l6": "protect",      "l7": "maintain",    "l8": "conserve",    "l9": "safeguard",    "l10": "sustain" },
+        "strange":      { "original": "strange",      "l5": "odd",       "l6": "curious",      "l7": "surprising",  "l8": "peculiar",    "l9": "uncanny",      "l10": "haunting" },
+        "quietly":      { "original": "quietly",      "l5": "silently",  "l6": "subtly",       "l7": "discreetly",  "l8": "imperceptibly","l9": "surreptitiously","l10":"clandestinely" }
+      },
+      "paragraphs": [
+        "In 1977, NASA {launched} two small probes called Voyager 1 and Voyager 2. They were never meant to leave the solar system. Their {initial} mission was a quick tour of Jupiter and Saturn — five years, maybe six, then silence.",
+        "Almost fifty years later, both spacecraft are still {transmitting} signals. Voyager 1 is now over twenty-three billion kilometers from Earth, the farthest human-made object that has ever existed. Every signal it sends takes more than twenty-two hours to reach us.",
+        "Bolted to each probe is a thin gold disk known as the Golden Record. It contains greetings in fifty-five languages, the cry of a baby, music from every continent, and instructions for any intelligent being who might one day find it. The {chance} of that happening is {minuscule}. The {gesture} is nonetheless deeply human.",
+        "Both probes have now {entered} interstellar space, the region beyond the sun's solar wind. Their power is fading. Engineers shut off one instrument at a time to {preserve} the last drops of energy from their plutonium hearts. By the early 2030s, the probes will go silent.",
+        "It is {strange} to think of two small machines, no bigger than a small car, still racing into the dark — carrying our hopes with them, {quietly}, like a message in a bottle thrown into a sea no one has ever crossed."
+      ],
+      "quizGroups": [
+        { "target": "launched",     "correct": "sent off; set into motion",         "distractors": ["pulled back", "destroyed", "left untouched"],                                       "sentence": "In 1977, NASA {launched} two small probes called Voyager 1 and Voyager 2." },
+        { "target": "initial",      "correct": "happening at the start",            "distractors": ["happening at the end", "never happening", "happening repeatedly"],                  "sentence": "Their {initial} mission was a quick tour of Jupiter and Saturn." },
+        { "target": "transmitting", "correct": "sending out signals",               "distractors": ["receiving signals only", "destroying signals", "blocking signals"],                 "sentence": "Almost fifty years later, both spacecraft are still {transmitting} signals." },
+        { "target": "chance",       "correct": "the likelihood of something",       "distractors": ["the certainty of something", "the cost of something", "the speed of something"],   "sentence": "The {chance} of that happening is {minuscule}." },
+        { "target": "gesture",      "correct": "a meaningful action or symbol",     "distractors": ["a careless mistake", "a hidden weapon", "a long speech"],                            "sentence": "The {gesture} is nonetheless deeply human." },
+        { "target": "minuscule",    "correct": "extremely small",                   "distractors": ["enormous in size", "average in size", "growing rapidly"],                            "sentence": "The chance of that happening is {minuscule}." },
+        { "target": "entered",      "correct": "moved into a place",                "distractors": ["stayed outside of", "destroyed entirely", "passed by quickly"],                     "sentence": "Both probes have now {entered} interstellar space." },
+        { "target": "preserve",     "correct": "to keep something from being lost", "distractors": ["to throw away quickly", "to use up entirely", "to break apart"],                    "sentence": "Engineers shut off one instrument at a time to {preserve} the last drops of energy from their plutonium hearts." },
+        { "target": "strange",      "correct": "unusual and hard to explain",       "distractors": ["expected and normal", "easy and quick", "loud and rude"],                            "sentence": "It is {strange} to think of two small machines still racing into the dark." },
+        { "target": "quietly",      "correct": "without drawing attention",         "distractors": ["very loudly and openly", "angrily and quickly", "carelessly and rudely"],            "sentence": "Carrying our hopes with them, {quietly}, like a message in a bottle thrown into a sea no one has ever crossed." }
+      ]
+    },
+
+    {
+      "id": "library-alexandria",
+      "title": "The Library That Burned Twice",
+      "eyebrow": "History · Reading Practice",
+      "byline": "Adapted nonfiction · ~285 words",
+      "date": "May 6, 2026",
+      "vocab": {
+        "famous":      { "original": "famous",      "l5": "well-known", "l6": "celebrated",   "l7": "renowned",    "l8": "esteemed",   "l9": "illustrious",  "l10": "venerated" },
+        "gathered":    { "original": "gathered",    "l5": "collected",  "l6": "assembled",    "l7": "compiled",    "l8": "amassed",    "l9": "consolidated", "l10": "aggregated" },
+        "lost":        { "original": "lost",        "l5": "missing",    "l6": "gone",         "l7": "vanished",    "l8": "obliterated","l9": "extinguished", "l10": "annihilated" },
+        "tried":       { "original": "tried",       "l5": "attempted",  "l6": "worked",       "l7": "endeavored",  "l8": "strove",     "l9": "labored",      "l10": "aspired" },
+        "arrival":     { "original": "arrival",     "l5": "coming",     "l6": "appearance",   "l7": "approach",    "l8": "advent",     "l9": "emergence",    "l10": "incursion" },
+        "loss":        { "original": "loss",        "l5": "damage",     "l6": "harm",         "l7": "setback",     "l8": "deprivation","l9": "detriment",    "l10": "calamity" },
+        "destroyed":   { "original": "destroyed",   "l5": "ruined",     "l6": "wrecked",      "l7": "demolished",  "l8": "devastated", "l9": "eradicated",   "l10": "obliterated" },
+        "slowly":      { "original": "slowly",      "l5": "gradually",  "l6": "steadily",     "l7": "deliberately","l8": "incrementally","l9": "imperceptibly","l10": "languidly" },
+        "haunts":      { "original": "haunts",      "l5": "follows",    "l6": "lingers in",   "l7": "troubles",    "l8": "afflicts",   "l9": "preoccupies",  "l10": "permeates" },
+        "preserved":   { "original": "preserved",   "l5": "saved",      "l6": "kept",         "l7": "maintained",  "l8": "conserved",  "l9": "safeguarded",  "l10": "ensconced" }
+      },
+      "paragraphs": [
+        "The Library of Alexandria is the most {famous} library that no one alive has ever seen. Founded in Egypt around 280 BCE, it was the heart of an ambitious project: to collect, in one place, every written work known to the ancient world.",
+        "Its scholars {gathered} scrolls from across the Mediterranean. Ships docking in Alexandria were searched not for treasure but for books, which were copied, the originals kept, and the copies returned. At its height, the library may have held over half a million scrolls — works of mathematics, medicine, poetry, history, and astronomy now {lost} forever.",
+        "We do not know exactly how it ended. The library was damaged during Julius Caesar's siege of the city in 48 BCE, when fire spread from the harbor into nearby buildings. Later rulers {tried} to rebuild what had burned. Centuries of unrest, religious conflict, and the {arrival} of new powers slowly chipped away at what remained.",
+        "By the seventh century, the library was effectively gone. The exact {loss} cannot be measured. Many works survived only as titles quoted by other writers — the rest of the text {destroyed} long before printing existed to copy it.",
+        "What disappeared at Alexandria did not vanish all at once. It faded {slowly}, in pieces, the way most great things end. The story still {haunts} historians, who wonder how much of the ancient world's knowledge might have been {preserved} if even one of those fires had been put out in time."
+      ],
+      "quizGroups": [
+        { "target": "famous",     "correct": "widely known and admired",                 "distractors": ["completely unknown", "actively hated", "recently invented"],                              "sentence": "The Library of Alexandria is the most {famous} library that no one alive has ever seen." },
+        { "target": "gathered",   "correct": "brought together from many places",        "distractors": ["scattered widely apart", "destroyed on purpose", "left untouched"],                       "sentence": "Its scholars {gathered} scrolls from across the Mediterranean." },
+        { "target": "lost",       "correct": "no longer existing or available",          "distractors": ["safely stored away", "newly discovered", "easy to find"],                                 "sentence": "Works of mathematics, medicine, poetry, history, and astronomy now {lost} forever." },
+        { "target": "tried",      "correct": "made an effort",                            "distractors": ["refused to act", "succeeded easily", "ignored entirely"],                                 "sentence": "Later rulers {tried} to rebuild what had burned." },
+        { "target": "arrival",    "correct": "the act of coming into a place",           "distractors": ["the act of leaving", "the act of staying still", "the act of fighting"],                  "sentence": "Centuries of unrest, religious conflict, and the {arrival} of new powers slowly chipped away at what remained." },
+        { "target": "loss",       "correct": "what was taken or destroyed",              "distractors": ["what was gained", "what was created", "what was repeated"],                              "sentence": "The exact {loss} cannot be measured." },
+        { "target": "destroyed",  "correct": "completely ruined or broken apart",        "distractors": ["carefully built up", "left untouched", "lightly cleaned"],                                "sentence": "The rest of the text {destroyed} long before printing existed to copy it." },
+        { "target": "slowly",     "correct": "happening over a long time",                "distractors": ["happening all at once", "happening violently", "happening loudly"],                       "sentence": "It faded {slowly}, in pieces, the way most great things end." },
+        { "target": "haunts",     "correct": "stays in the mind in a troubling way",     "distractors": ["amuses lightly", "is forgotten quickly", "is celebrated openly"],                          "sentence": "The story still {haunts} historians." },
+        { "target": "preserved",  "correct": "kept safe from harm or loss",               "distractors": ["thrown away", "burned to ash", "given away freely"],                                     "sentence": "Historians wonder how much of the ancient world's knowledge might have been {preserved} if even one of those fires had been put out in time." }
+      ]
+    },
+
+    {
+      "id": "marie-curie-twice",
+      "title": "Twice the Prize",
+      "eyebrow": "Biography · Reading Practice",
+      "byline": "Adapted nonfiction · ~290 words",
+      "date": "May 7, 2026",
+      "vocab": {
+        "remarkable":   { "original": "remarkable",   "l5": "amazing",       "l6": "impressive",    "l7": "extraordinary", "l8": "exceptional", "l9": "phenomenal",    "l10": "unparalleled" },
+        "stubborn":     { "original": "stubborn",     "l5": "firm",          "l6": "determined",    "l7": "persistent",    "l8": "unyielding",  "l9": "tenacious",     "l10": "obdurate" },
+        "barred":       { "original": "barred",       "l5": "blocked",       "l6": "stopped",       "l7": "prevented",     "l8": "prohibited",  "l9": "excluded",      "l10": "ostracized" },
+        "carefully":    { "original": "carefully",    "l5": "neatly",        "l6": "thoughtfully",  "l7": "attentively",   "l8": "meticulously","l9": "scrupulously",  "l10": "fastidiously" },
+        "discovered":   { "original": "discovered",   "l5": "found",         "l6": "uncovered",     "l7": "identified",    "l8": "detected",    "l9": "unearthed",     "l10": "ascertained" },
+        "praise":       { "original": "praise",       "l5": "compliment",    "l6": "respect",       "l7": "approval",      "l8": "admiration",  "l9": "acclaim",       "l10": "adulation" },
+        "kept":         { "original": "kept",         "l5": "saved",         "l6": "held",          "l7": "retained",      "l8": "maintained",  "l9": "preserved",     "l10": "perpetuated" },
+        "exposure":     { "original": "exposure",     "l5": "contact",       "l6": "experience",    "l7": "subjection",    "l8": "vulnerability","l9": "susceptibility","l10": "infliction" },
+        "tirelessly":   { "original": "tirelessly",   "l5": "constantly",    "l6": "endlessly",     "l7": "ceaselessly",   "l8": "relentlessly","l9": "indefatigably", "l10": "unflaggingly" },
+        "overshadowed": { "original": "overshadowed", "l5": "outshone",      "l6": "outdone",       "l7": "eclipsed",      "l8": "surpassed",   "l9": "dwarfed",       "l10": "supplanted" }
+      },
+      "paragraphs": [
+        "Marie Curie's life was {remarkable} for many reasons, but one detail still surprises people: she remains the only person ever to win Nobel Prizes in two different sciences — physics and chemistry. The first came in 1903, the second in 1911.",
+        "Born in Poland in 1867, she could not study at her own country's universities, which were closed to women at the time. {Stubborn} and brilliant, she moved to Paris, slept in unheated attics, and lived on bread and tea so she could attend the Sorbonne — one of the few European universities not {barred} to her.",
+        "Working with her husband Pierre in a leaking shed near the school, she {carefully} processed tons of pitchblende ore by hand. Out of it she {discovered} two new elements: polonium, named after her homeland, and radium, which glowed faintly in the dark.",
+        "{Praise} for the work was real but uneven. When she won her first Nobel, the committee tried to hand the prize only to her husband and another colleague. Pierre refused unless Marie's name was added. She {kept} working long after his death in 1906.",
+        "What no one yet understood was the danger she had been studying. Years of {exposure} to radiation slowly ruined her health. She worked {tirelessly} until her death in 1934. Her notebooks are still radioactive a century later — quietly outshining and {overshadowed} by the bigger story they contain."
+      ],
+      "quizGroups": [
+        { "target": "remarkable",   "correct": "worth noticing or talking about", "distractors": ["completely ordinary", "easily forgotten", "harmful and bad"],                          "sentence": "Marie Curie's life was {remarkable} for many reasons." },
+        { "target": "stubborn",     "correct": "refusing to give up",              "distractors": ["quickly giving up", "easily distracted", "calmly agreeable"],                          "sentence": "{Stubborn} and brilliant, she moved to Paris." },
+        { "target": "barred",       "correct": "kept out or not allowed",          "distractors": ["welcomed openly", "rebuilt fully", "praised highly"],                                "sentence": "One of the few European universities not {barred} to her." },
+        { "target": "carefully",    "correct": "with great attention to detail",   "distractors": ["with no attention at all", "very loudly", "in a hurry"],                              "sentence": "She {carefully} processed tons of pitchblende ore by hand." },
+        { "target": "discovered",   "correct": "found something for the first time","distractors": ["created from nothing", "destroyed completely", "ignored entirely"],                  "sentence": "Out of it she {discovered} two new elements: polonium and radium." },
+        { "target": "praise",       "correct": "expressions of approval",          "distractors": ["expressions of anger", "demands for payment", "warnings of danger"],                  "sentence": "{Praise} for the work was real but uneven." },
+        { "target": "kept",         "correct": "continued to do",                  "distractors": ["stopped doing", "started for the first time", "rejected entirely"],                  "sentence": "She {kept} working long after his death in 1906." },
+        { "target": "exposure",     "correct": "being affected by something",      "distractors": ["being completely shielded", "being far away from", "being hidden inside"],            "sentence": "Years of {exposure} to radiation slowly ruined her health." },
+        { "target": "tirelessly",   "correct": "without growing weary",            "distractors": ["with frequent breaks", "very briefly", "lazily and slowly"],                          "sentence": "She worked {tirelessly} until her death in 1934." },
+        { "target": "overshadowed", "correct": "made to seem less important",      "distractors": ["made far more important", "kept perfectly equal", "completely forgotten"],            "sentence": "Her notebooks are still radioactive a century later — quietly outshining and {overshadowed} by the bigger story they contain." }
+      ]
+    },
+
+    {
+      "id": "bystander-watchers",
+      "title": "The Watchers",
+      "eyebrow": "Psychology · Reading Practice",
+      "byline": "Adapted nonfiction · ~290 words",
+      "date": "May 8, 2026",
+      "vocab": {
+        "puzzled":     { "original": "puzzled",     "l5": "confused",     "l6": "baffled",     "l7": "perplexed",   "l8": "bewildered", "l9": "mystified",    "l10": "flummoxed" },
+        "ignored":     { "original": "ignored",     "l5": "missed",       "l6": "overlooked",  "l7": "disregarded", "l8": "dismissed",  "l9": "neglected",    "l10": "spurned" },
+        "quickly":     { "original": "quickly",     "l5": "fast",         "l6": "rapidly",     "l7": "swiftly",     "l8": "promptly",   "l9": "expeditiously","l10": "instantaneously" },
+        "studied":     { "original": "studied",     "l5": "looked at",    "l6": "examined",    "l7": "investigated","l8": "researched", "l9": "scrutinized",  "l10": "interrogated" },
+        "react":       { "original": "react",       "l5": "respond",      "l6": "answer",      "l7": "act",         "l8": "intervene",  "l9": "engage",       "l10": "rejoinder" },
+        "common":      { "original": "common",      "l5": "usual",        "l6": "frequent",    "l7": "typical",     "l8": "prevalent",  "l9": "pervasive",    "l10": "ubiquitous" },
+        "cause":       { "original": "cause",       "l5": "reason",       "l6": "source",      "l7": "trigger",     "l8": "factor",     "l9": "catalyst",     "l10": "impetus" },
+        "spread":      { "original": "spread",      "l5": "shared",       "l6": "divided",     "l7": "scattered",   "l8": "dispersed",  "l9": "diffused",     "l10": "disseminated" },
+        "uneasy":      { "original": "uneasy",      "l5": "nervous",      "l6": "uncomfortable","l7": "troubled",   "l8": "apprehensive","l9": "disquieted",  "l10": "perturbed" },
+        "deeply":      { "original": "deeply",      "l5": "strongly",     "l6": "greatly",     "l7": "profoundly",  "l8": "intensely",  "l9": "fundamentally","l10": "ineradicably" }
+      },
+      "paragraphs": [
+        "In 1964, news reports claimed that thirty-eight neighbors had watched a young woman attacked outside her New York apartment without any of them calling for help. Many details were later shown to be wrong. But a generation of psychologists had already been {puzzled} by a question the story raised: why do people sometimes watch and do nothing while a stranger needs help?",
+        "Earlier studies had shown that small groups acted faster in emergencies than large ones. The result was strange. A single witness usually called for help right away. Larger groups often {ignored} the same situation, or responded so {quickly} after long pauses that help came too late.",
+        "Two researchers, Bibb Latané and John Darley, {studied} this carefully through staged experiments. In one, smoke poured into a waiting room. Participants alone were quick to {react}. Participants in groups, even small ones, often sat still — glancing around, waiting for someone else to move first.",
+        "They called the pattern the bystander effect. It is more {common} than people like to admit. The {cause} is not cruelty but a kind of social paralysis. Responsibility seems {spread} so thinly across a crowd that no single person feels truly responsible.",
+        "Knowing about the effect changes things. Witnesses who have read about it act more often. The lesson is simple but {uneasy}: in a crowd, look directly at someone, point, and ask them by description. Doing so cuts through the silence — and reminds everyone, including yourself, that helping is {deeply} a choice."
+      ],
+      "quizGroups": [
+        { "target": "puzzled",  "correct": "confused and unable to explain",        "distractors": ["fully confident in an answer", "completely uninterested", "loudly excited"],                "sentence": "Psychologists had been {puzzled} by a question the story raised." },
+        { "target": "ignored",  "correct": "paid no attention to",                  "distractors": ["paid close attention to", "loudly celebrated", "quickly understood"],                       "sentence": "Larger groups often {ignored} the same situation." },
+        { "target": "quickly",  "correct": "in a short amount of time",             "distractors": ["after a very long time", "carelessly and rudely", "softly and silently"],                  "sentence": "Or responded so {quickly} after long pauses that help came too late." },
+        { "target": "studied",  "correct": "examined carefully to learn about",     "distractors": ["destroyed without thinking", "left completely alone", "celebrated publicly"],                "sentence": "Two researchers, Bibb Latané and John Darley, {studied} this carefully through staged experiments." },
+        { "target": "react",    "correct": "to act in response to something",       "distractors": ["to ignore something", "to plan something carefully", "to forget something"],                "sentence": "Participants alone were quick to {react}." },
+        { "target": "common",   "correct": "happening often",                       "distractors": ["happening rarely", "happening once only", "never happening"],                                "sentence": "It is more {common} than people like to admit." },
+        { "target": "cause",    "correct": "the reason something happens",          "distractors": ["the result of something", "an unrelated detail", "a happy accident"],                       "sentence": "The {cause} is not cruelty but a kind of social paralysis." },
+        { "target": "spread",   "correct": "shared widely across many",             "distractors": ["kept in one place", "destroyed completely", "given to no one"],                              "sentence": "Responsibility seems {spread} so thinly across a crowd that no single person feels truly responsible." },
+        { "target": "uneasy",   "correct": "making one feel uncomfortable",         "distractors": ["fully relaxing", "deeply boring", "loudly funny"],                                            "sentence": "The lesson is simple but {uneasy}." },
+        { "target": "deeply",   "correct": "in a strong, fundamental way",          "distractors": ["only on the surface", "not at all", "loudly and rudely"],                                    "sentence": "Helping is {deeply} a choice." }
+      ]
+    },
+
+    {
+      "id": "gps-map-pocket",
+      "title": "The Map in Your Pocket",
+      "eyebrow": "Technology · Reading Practice",
+      "byline": "Adapted nonfiction · ~290 words",
+      "date": "May 9, 2026",
+      "vocab": {
+        "ordinary":    { "original": "ordinary",    "l5": "normal",     "l6": "everyday",    "l7": "common",      "l8": "routine",     "l9": "mundane",       "l10": "quotidian" },
+        "designed":    { "original": "designed",    "l5": "made",       "l6": "planned",     "l7": "engineered",  "l8": "devised",     "l9": "conceived",     "l10": "architected" },
+        "track":       { "original": "track",       "l5": "follow",     "l6": "watch",       "l7": "monitor",     "l8": "trace",       "l9": "pursue",        "l10": "surveil" },
+        "released":    { "original": "released",    "l5": "let out",    "l6": "shared",      "l7": "issued",      "l8": "unveiled",    "l9": "disclosed",     "l10": "promulgated" },
+        "expanded":    { "original": "expanded",    "l5": "grew",       "l6": "widened",     "l7": "extended",    "l8": "broadened",   "l9": "amplified",     "l10": "proliferated" },
+        "tiny":        { "original": "tiny",        "l5": "small",      "l6": "little",      "l7": "minor",       "l8": "slight",      "l9": "minute",        "l10": "infinitesimal" },
+        "rely":        { "original": "rely",        "l5": "trust",      "l6": "count on",    "l7": "depend",      "l8": "lean on",     "l9": "bank",          "l10": "presuppose" },
+        "vulnerable":  { "original": "vulnerable",  "l5": "open",       "l6": "weak",        "l7": "exposed",     "l8": "defenseless", "l9": "susceptible",   "l10": "precarious" },
+        "remarkably":  { "original": "remarkably",  "l5": "very",       "l6": "notably",     "l7": "strikingly",  "l8": "surprisingly","l9": "exceptionally", "l10": "astonishingly" },
+        "invisibly":   { "original": "invisibly",   "l5": "secretly",   "l6": "unseen",      "l7": "discreetly",  "l8": "imperceptibly","l9": "covertly",     "l10": "imperceptibly" }
+      },
+      "paragraphs": [
+        "Most people use GPS several times a day without giving it a second thought. The voice from a phone telling a driver to turn right has become so {ordinary} that the system behind it feels almost natural — as if the world had always known where everyone was.",
+        "It hadn't. GPS began as a Cold War project, {designed} in the 1970s for the U.S. military. Its purpose was to help submarines and missiles know their position to within a few meters. The system uses signals from a constellation of satellites, each carrying a clock so precise that it can measure time differences smaller than a millionth of a second. From those tiny gaps, your phone can {track} your location in real time.",
+        "In 1983, a civilian airliner was shot down after wandering off course over Soviet airspace. President Reagan {released} GPS to civilian use partly in response. For years the public version was deliberately less accurate than the military version. That throttling was finally lifted in 2000, and the system rapidly {expanded} into everything from delivery apps to farm equipment.",
+        "What feels magical is mostly geometry. By comparing the {tiny} delays in signals from at least four satellites, your phone solves a few equations and locates itself on Earth. We {rely} on this so heavily that disruption can paralyze entire cities — flights, banking, and shipping all use it.",
+        "The system is also {vulnerable}. Cheap jammers and weather in space can blank it out for hours. It is {remarkably} fragile for something we trust so much, working {invisibly} above us in a thin shell of orbiting clocks no one ever sees."
+      ],
+      "quizGroups": [
+        { "target": "ordinary",   "correct": "common and unremarkable",              "distractors": ["rare and unusual", "secret and hidden", "broken and useless"],                            "sentence": "The voice telling a driver to turn right has become so {ordinary}." },
+        { "target": "designed",   "correct": "carefully planned for a purpose",      "distractors": ["created by accident", "left unfinished", "destroyed quickly"],                            "sentence": "GPS began as a Cold War project, {designed} in the 1970s for the U.S. military." },
+        { "target": "track",      "correct": "to follow the movement of",            "distractors": ["to lose sight of", "to ignore on purpose", "to destroy completely"],                       "sentence": "From those tiny gaps, your phone can {track} your location in real time." },
+        { "target": "released",   "correct": "made available to the public",         "distractors": ["kept hidden away", "destroyed entirely", "ignored carelessly"],                            "sentence": "President Reagan {released} GPS to civilian use partly in response." },
+        { "target": "expanded",   "correct": "grew larger or wider",                  "distractors": ["shrank into nothing", "stayed exactly the same", "broke into pieces"],                     "sentence": "The system rapidly {expanded} into everything from delivery apps to farm equipment." },
+        { "target": "tiny",       "correct": "very small",                            "distractors": ["very large", "loud and noisy", "fast and dangerous"],                                       "sentence": "By comparing the {tiny} delays in signals from at least four satellites." },
+        { "target": "rely",       "correct": "to depend on for support",              "distractors": ["to refuse to use", "to destroy carefully", "to invent suddenly"],                          "sentence": "We {rely} on this so heavily that disruption can paralyze entire cities." },
+        { "target": "vulnerable", "correct": "open to harm or attack",                 "distractors": ["fully protected always", "extremely strong always", "completely hidden always"],          "sentence": "The system is also {vulnerable}." },
+        { "target": "remarkably", "correct": "surprisingly so",                       "distractors": ["barely at all", "loudly", "carelessly"],                                                    "sentence": "It is {remarkably} fragile for something we trust so much." },
+        { "target": "invisibly",  "correct": "without being seen",                    "distractors": ["openly in plain view", "loudly and clearly", "for a very long time"],                     "sentence": "Working {invisibly} above us in a thin shell of orbiting clocks no one ever sees." }
+      ]
+    },
+
+    {
+      "id": "coral-bleaching",
+      "title": "When the Reef Turns White",
+      "eyebrow": "Environment · Reading Practice",
+      "byline": "Adapted nonfiction · ~290 words",
+      "date": "May 10, 2026",
+      "vocab": {
+        "vibrant":    { "original": "vibrant",    "l5": "bright",     "l6": "lively",      "l7": "vivid",       "l8": "radiant",     "l9": "luminous",      "l10": "incandescent" },
+        "fragile":    { "original": "fragile",    "l5": "weak",       "l6": "delicate",    "l7": "frail",       "l8": "brittle",     "l9": "tenuous",       "l10": "evanescent" },
+        "shelter":    { "original": "shelter",    "l5": "home",       "l6": "cover",       "l7": "refuge",      "l8": "haven",       "l9": "sanctuary",     "l10": "asylum" },
+        "rises":      { "original": "rises",      "l5": "goes up",    "l6": "climbs",      "l7": "increases",   "l8": "ascends",     "l9": "escalates",     "l10": "surges" },
+        "expel":      { "original": "expel",      "l5": "push out",   "l6": "send out",    "l7": "release",     "l8": "eject",       "l9": "discharge",     "l10": "evict" },
+        "starve":     { "original": "starve",     "l5": "go hungry",  "l6": "weaken",      "l7": "wither",      "l8": "languish",    "l9": "deteriorate",   "l10": "atrophy" },
+        "warning":    { "original": "warning",    "l5": "alert",      "l6": "signal",      "l7": "notice",      "l8": "caution",     "l9": "harbinger",     "l10": "portent" },
+        "rapidly":    { "original": "rapidly",    "l5": "fast",       "l6": "quickly",     "l7": "swiftly",     "l8": "speedily",    "l9": "expeditiously", "l10": "precipitously" },
+        "recover":    { "original": "recover",    "l5": "heal",       "l6": "improve",     "l7": "rebound",     "l8": "regenerate",  "l9": "convalesce",    "l10": "rehabilitate" },
+        "fading":     { "original": "fading",     "l5": "dimming",    "l6": "weakening",   "l7": "diminishing", "l8": "waning",      "l9": "dwindling",     "l10": "ebbing" }
+      },
+      "paragraphs": [
+        "A healthy coral reef is one of the most {vibrant} places on Earth. Bands of orange, blue, and green ripple across the seafloor as fish, eels, and sea turtles weave through structures that took thousands of years to grow. Beneath that color, however, is a {fragile} partnership.",
+        "Coral itself is a small, simple animal. Its color comes from algae living inside its tissues — tiny green cells that photosynthesize sunlight and pass food back to the coral. In return, the coral provides {shelter}. The two have lived together for hundreds of millions of years.",
+        "When the surrounding water {rises} just a few degrees above normal, the partnership breaks. Stressed corals {expel} the algae from their bodies. Without their tenants, the corals lose their color and turn ghostly white — what scientists call coral bleaching. They do not die immediately, but without the algae they slowly {starve}.",
+        "Bleaching events are now happening with frightening regularity. The Great Barrier Reef has bleached five times since 2016. Each event is a {warning} that the ocean is heating {rapidly}, and the chemistry of seawater is changing along with it.",
+        "Some reefs do {recover} when temperatures fall. But each event leaves a smaller, weaker reef behind. Marine biologists describe walking through bleached areas as a strange kind of grief — the same shapes that once swarmed with life, now silent and {fading}, like a forest after a fire that no one saw."
+      ],
+      "quizGroups": [
+        { "target": "vibrant",  "correct": "full of life and color",          "distractors": ["dull and lifeless", "broken and empty", "tiny and unseen"],                          "sentence": "A healthy coral reef is one of the most {vibrant} places on Earth." },
+        { "target": "fragile",  "correct": "easily harmed or broken",         "distractors": ["very strong and tough", "completely useless", "fully grown up"],                     "sentence": "Beneath that color, however, is a {fragile} partnership." },
+        { "target": "shelter",  "correct": "a place that protects",           "distractors": ["an open exposure", "a noisy crowd", "a sudden danger"],                              "sentence": "In return, the coral provides {shelter}." },
+        { "target": "rises",    "correct": "moves to a higher level",         "distractors": ["drops down low", "stays exactly the same", "disappears entirely"],                   "sentence": "When the surrounding water {rises} just a few degrees above normal, the partnership breaks." },
+        { "target": "expel",    "correct": "to force out from inside",        "distractors": ["to invite in warmly", "to keep safe forever", "to copy carefully"],                  "sentence": "Stressed corals {expel} the algae from their bodies." },
+        { "target": "starve",   "correct": "to suffer from lack of food",     "distractors": ["to eat plenty", "to grow rapidly", "to laugh loudly"],                                "sentence": "Without the algae they slowly {starve}." },
+        { "target": "warning",  "correct": "a sign that something bad may happen", "distractors": ["a happy celebration", "a forgotten detail", "a long-awaited reward"],            "sentence": "Each event is a {warning} that the ocean is heating {rapidly}." },
+        { "target": "rapidly",  "correct": "very quickly",                    "distractors": ["very slowly", "in complete silence", "in a careful manner"],                          "sentence": "The ocean is heating {rapidly}, and the chemistry of seawater is changing along with it." },
+        { "target": "recover",  "correct": "to return to a healthy state",    "distractors": ["to fall apart further", "to stay broken", "to disappear entirely"],                   "sentence": "Some reefs do {recover} when temperatures fall." },
+        { "target": "fading",   "correct": "becoming less visible or strong", "distractors": ["growing brighter", "exploding loudly", "freezing solid"],                              "sentence": "The same shapes that once swarmed with life, now silent and {fading}, like a forest after a fire." }
+      ]
+    },
+
+    {
+      "id": "bach-suites",
+      "title": "The Sleeping Suites",
+      "eyebrow": "Music · Reading Practice",
+      "byline": "Adapted nonfiction · ~290 words",
+      "date": "May 11, 2026",
+      "vocab": {
+        "neglected":    { "original": "neglected",    "l5": "ignored",      "l6": "unattended",  "l7": "overlooked",   "l8": "abandoned",    "l9": "forsaken",       "l10": "languishing" },
+        "stumbled":     { "original": "stumbled",     "l5": "tripped",      "l6": "happened",    "l7": "chanced",      "l8": "blundered",    "l9": "fortuitously found","l10": "happenstance" },
+        "ancient":      { "original": "ancient",      "l5": "old",          "l6": "aged",        "l7": "antique",      "l8": "venerable",    "l9": "archaic",        "l10": "antediluvian" },
+        "studied":      { "original": "studied",      "l5": "learned",      "l6": "examined",    "l7": "researched",   "l8": "rehearsed",    "l9": "absorbed",       "l10": "internalized" },
+        "performed":    { "original": "performed",    "l5": "played",       "l6": "presented",   "l7": "executed",     "l8": "rendered",     "l9": "interpreted",    "l10": "delivered" },
+        "transformed":  { "original": "transformed",  "l5": "changed",      "l6": "altered",     "l7": "reshaped",     "l8": "converted",    "l9": "metamorphosed",  "l10": "reconstituted" },
+        "intimate":     { "original": "intimate",     "l5": "close",        "l6": "personal",    "l7": "private",      "l8": "tender",       "l9": "confidential",   "l10": "inviolable" },
+        "deceptively":  { "original": "deceptively",  "l5": "secretly",     "l6": "tricky",      "l7": "misleadingly", "l8": "subtly",       "l9": "elusively",      "l10": "speciously" },
+        "reverence":    { "original": "reverence",    "l5": "respect",      "l6": "admiration",  "l7": "honor",        "l8": "esteem",       "l9": "veneration",     "l10": "awe" },
+        "lingers":      { "original": "lingers",      "l5": "stays",        "l6": "remains",     "l7": "persists",     "l8": "abides",       "l9": "endures",        "l10": "perdures" }
+      },
+      "paragraphs": [
+        "Johann Sebastian Bach wrote his Six Suites for Unaccompanied Cello around 1720. For nearly two hundred years they sat almost {neglected}, treated as exercises rather than music. Cellists used them to warm up; concert audiences rarely heard them.",
+        "In 1890, a thirteen-year-old boy named Pablo Casals {stumbled} on a tattered copy of the suites in a secondhand music shop in Barcelona. He could not afford it at first. He went back, bought the score, and for the next twelve years played them every morning before he would let himself perform them in public. He felt the {ancient} pages contained something no one had yet heard.",
+        "Casals {studied} each note as if reading a private letter from a man dead for over a hundred years. When he finally {performed} the full set in 1936, the music world reacted as if the pieces had been written yesterday.",
+        "The recordings he made shortly after {transformed} how cellists understood Bach. The suites are now considered the heart of the cello repertoire — {intimate} works that sound conversational and {deceptively} simple, then turn, in a single phrase, into something much vaster.",
+        "Casals's quiet {reverence} for the music still {lingers} over performances today. Every cellist who plays the suites carries, somewhere in the bow arm, the memory of a thirteen-year-old reaching for a forgotten book on a dusty shelf — and the long silence that came before."
+      ],
+      "quizGroups": [
+        { "target": "neglected",   "correct": "left without proper care or attention", "distractors": ["carefully cherished", "constantly performed", "loudly celebrated"],                       "sentence": "For nearly two hundred years they sat almost {neglected}." },
+        { "target": "stumbled",    "correct": "came upon by chance",                   "distractors": ["searched carefully for", "destroyed without thinking", "hidden on purpose"],                "sentence": "Pablo Casals {stumbled} on a tattered copy of the suites in a secondhand music shop in Barcelona." },
+        { "target": "ancient",     "correct": "very old",                              "distractors": ["very new", "very small", "very loud"],                                                       "sentence": "He felt the {ancient} pages contained something no one had yet heard." },
+        { "target": "studied",     "correct": "examined carefully to learn",           "distractors": ["destroyed quickly", "ignored entirely", "performed loudly"],                                  "sentence": "Casals {studied} each note as if reading a private letter from a man dead for over a hundred years." },
+        { "target": "performed",   "correct": "played for an audience",                "distractors": ["wrote for the first time", "kept hidden away", "destroyed completely"],                     "sentence": "When he finally {performed} the full set in 1936." },
+        { "target": "transformed", "correct": "completely changed",                    "distractors": ["kept exactly the same", "destroyed completely", "lightly touched"],                          "sentence": "The recordings he made shortly after {transformed} how cellists understood Bach." },
+        { "target": "intimate",    "correct": "personal and close",                    "distractors": ["public and grand", "cold and distant", "loud and forceful"],                                  "sentence": "{Intimate} works that sound conversational and {deceptively} simple." },
+        { "target": "deceptively", "correct": "in a way that misleads",                "distractors": ["in a way that is fully clear", "in a way that is loud", "in a way that is rude"],            "sentence": "{Intimate} works that sound conversational and {deceptively} simple." },
+        { "target": "reverence",   "correct": "deep respect",                          "distractors": ["mild dislike", "loud anger", "casual indifference"],                                          "sentence": "Casals's quiet {reverence} for the music still {lingers} over performances today." },
+        { "target": "lingers",     "correct": "stays for a long time",                 "distractors": ["disappears at once", "fights actively", "celebrates briefly"],                                "sentence": "Casals's quiet {reverence} for the music still {lingers} over performances today." }
+      ]
+    },
+
+    {
+      "id": "last-train-home",
+      "title": "The Last Train Home",
+      "eyebrow": "Fiction · Reading Practice",
+      "byline": "Short literary excerpt · ~285 words",
+      "date": "May 12, 2026",
+      "vocab": {
+        "weary":       { "original": "weary",       "l5": "tired",      "l6": "drained",     "l7": "exhausted",   "l8": "fatigued",   "l9": "spent",          "l10": "enervated" },
+        "deserted":    { "original": "deserted",    "l5": "empty",      "l6": "abandoned",   "l7": "vacant",      "l8": "forsaken",   "l9": "desolate",       "l10": "uninhabited" },
+        "noticed":     { "original": "noticed",     "l5": "saw",        "l6": "spotted",     "l7": "observed",    "l8": "perceived",  "l9": "discerned",      "l10": "espied" },
+        "linger":      { "original": "linger",      "l5": "stay",       "l6": "wait",        "l7": "remain",      "l8": "tarry",      "l9": "loiter",         "l10": "dawdle" },
+        "wondered":    { "original": "wondered",    "l5": "thought",    "l6": "asked herself","l7": "questioned", "l8": "pondered",   "l9": "speculated",     "l10": "ruminated" },
+        "tightly":     { "original": "tightly",     "l5": "closely",    "l6": "firmly",      "l7": "snugly",      "l8": "rigidly",    "l9": "constrictingly", "l10": "compactly" },
+        "softly":      { "original": "softly",      "l5": "gently",     "l6": "quietly",     "l7": "tenderly",    "l8": "delicately",  "l9": "tenuously",     "l10": "imperceptibly" },
+        "departure":   { "original": "departure",   "l5": "leaving",    "l6": "exit",        "l7": "going",       "l8": "withdrawal", "l9": "egress",         "l10": "valediction" },
+        "fragile":     { "original": "fragile",     "l5": "weak",       "l6": "delicate",    "l7": "frail",       "l8": "brittle",    "l9": "tenuous",        "l10": "ephemeral" },
+        "ached":       { "original": "ached",       "l5": "hurt",       "l6": "throbbed",    "l7": "smarted",     "l8": "pained",     "l9": "anguished",      "l10": "lamented" }
+      },
+      "paragraphs": [
+        "She boarded the train just before midnight, {weary} from a day that had asked too much of her. The car was nearly {deserted}. A single elderly man dozed near the back, his newspaper folded across his chest like a paper blanket.",
+        "She took the seat by the window. The platform outside was wet from an earlier rain. She {noticed} her own reflection in the glass before the train began to move — pale, eyes too dark, hair pulled back in a way she did not remember doing.",
+        "The conductor came and went. The train pulled out of the station and the city's lights began to {linger}, then thin, then disappear entirely. She {wondered} how many times she had taken this same route home, and whether anyone, looking out from any of the apartment windows above, had ever noticed her at all.",
+        "She held her bag {tightly} in her lap. She let her forehead rest against the cold window and listened to the rails {softly} clicking beneath her — a small repeating sound that had carried her, she realized, through every difficult {departure} of her adult life.",
+        "Somewhere outside, a yard light flickered and was gone. She closed her eyes. Memory, she had read once, is the {fragile} part of the self — the first to leave and the last to return. Tonight her memory {ached}, the way a tooth aches before it finally lets go."
+      ],
+      "quizGroups": [
+        { "target": "weary",     "correct": "very tired",                  "distractors": ["full of energy", "extremely happy", "loudly excited"],                          "sentence": "She boarded the train just before midnight, {weary} from a day that had asked too much of her." },
+        { "target": "deserted",  "correct": "empty of people",             "distractors": ["packed with people", "newly built", "brightly lit"],                            "sentence": "The car was nearly {deserted}." },
+        { "target": "noticed",   "correct": "became aware of",              "distractors": ["completely missed", "destroyed quickly", "shouted about"],                      "sentence": "She {noticed} her own reflection in the glass before the train began to move." },
+        { "target": "linger",    "correct": "stay for a while",             "distractors": ["disappear at once", "shout loudly", "race ahead"],                              "sentence": "The city's lights began to {linger}, then thin, then disappear entirely." },
+        { "target": "wondered",  "correct": "thought about with curiosity", "distractors": ["was completely sure of", "shouted angrily", "ignored entirely"],                "sentence": "She {wondered} how many times she had taken this same route home." },
+        { "target": "tightly",   "correct": "with a firm, close grip",      "distractors": ["very loosely", "very lazily", "very loudly"],                                  "sentence": "She held her bag {tightly} in her lap." },
+        { "target": "softly",    "correct": "gently and quietly",           "distractors": ["loudly and harshly", "violently", "rapidly"],                                  "sentence": "She let her forehead rest against the cold window and listened to the rails {softly} clicking beneath her." },
+        { "target": "departure", "correct": "an act of leaving",            "distractors": ["an act of arriving", "an act of staying", "an act of returning"],               "sentence": "Through every difficult {departure} of her adult life." },
+        { "target": "fragile",   "correct": "easily broken or harmed",       "distractors": ["very strong", "completely fixed", "newly built"],                              "sentence": "Memory, she had read once, is the {fragile} part of the self." },
+        { "target": "ached",     "correct": "felt a steady, dull pain",      "distractors": ["felt no pain at all", "shouted loudly", "moved very fast"],                    "sentence": "Tonight her memory {ached}, the way a tooth aches before it finally lets go." }
+      ]
+    },
+
+    {
+      "id": "mile-in-four",
+      "title": "The Mile in Four",
+      "eyebrow": "Sports · Reading Practice",
+      "byline": "Adapted nonfiction · ~290 words",
+      "date": "May 13, 2026",
+      "vocab": {
+        "barrier":      { "original": "barrier",      "l5": "wall",        "l6": "block",       "l7": "obstacle",    "l8": "obstruction", "l9": "impediment",     "l10": "hindrance" },
+        "convinced":    { "original": "convinced",    "l5": "sure",        "l6": "certain",     "l7": "persuaded",   "l8": "satisfied",   "l9": "assured",        "l10": "indoctrinated" },
+        "trained":      { "original": "trained",      "l5": "practiced",   "l6": "prepared",    "l7": "drilled",     "l8": "conditioned", "l9": "honed",          "l10": "disciplined" },
+        "blustery":     { "original": "blustery",     "l5": "windy",       "l6": "gusty",       "l7": "stormy",      "l8": "tempestuous", "l9": "squally",        "l10": "turbulent" },
+        "shattered":    { "original": "shattered",    "l5": "broke",       "l6": "smashed",     "l7": "splintered",  "l8": "fractured",   "l9": "demolished",     "l10": "obliterated" },
+        "stunned":      { "original": "stunned",      "l5": "shocked",     "l6": "amazed",      "l7": "astonished",  "l8": "stupefied",   "l9": "dumbfounded",    "l10": "flabbergasted" },
+        "grasp":        { "original": "grasp",        "l5": "reach",       "l6": "understand",  "l7": "perceive",    "l8": "comprehend",  "l9": "apprehend",      "l10": "fathom" },
+        "rapidly":      { "original": "rapidly",      "l5": "quickly",     "l6": "fast",        "l7": "swiftly",     "l8": "speedily",    "l9": "expeditiously",  "l10": "precipitously" },
+        "ordinary":     { "original": "ordinary",     "l5": "normal",      "l6": "common",      "l7": "average",     "l8": "routine",     "l9": "unremarkable",   "l10": "pedestrian" },
+        "lingers":      { "original": "lingers",      "l5": "stays",       "l6": "remains",     "l7": "persists",    "l8": "abides",      "l9": "endures",        "l10": "perdures" }
+      },
+      "paragraphs": [
+        "For most of the twentieth century, running a mile in under four minutes was thought to be a {barrier} that no human body could cross. Doctors warned that the heart and lungs would not survive the strain. Coaches were {convinced} the human frame had reached its limits. Many believed it was simply impossible.",
+        "Roger Bannister, a young British medical student, did not agree. He {trained} on a public track between hospital shifts, often in heavy boots to make daily runs feel harder. He ran calculations about pace and pulse the way another doctor might run blood tests.",
+        "On a {blustery} afternoon in May 1954, in front of a small crowd in Oxford, he stepped onto the track with two friends who had agreed to set the pace for him. The wind almost made him quit before the start. He ran anyway. When he crossed the line, the announcer's voice cracked over the loudspeaker. The official time, he said, was three minutes and — the rest was lost in the cheering. Bannister had {shattered} the four-minute mile.",
+        "What followed was odd. Within forty-six days, another runner broke the same barrier. Within three years, sixteen runners had. The wall, it turned out, had been more in the head than in the body. Once Bannister proved it could be done, others {stunned} themselves by doing it too. The barrier had been mental, and they could finally {grasp} that.",
+        "Records have fallen {rapidly} since. The mile is now run nearly seventeen seconds faster. But Bannister's run, on an {ordinary} cinder track in front of a few hundred people, still {lingers} as a small lesson — that what looks like the edge of human possibility is sometimes only the edge of what we have agreed to believe."
+      ],
+      "quizGroups": [
+        { "target": "barrier",   "correct": "something that blocks the way",     "distractors": ["something that helps along", "something that disappears", "something that makes a sound"], "sentence": "Running a mile in under four minutes was thought to be a {barrier} that no human body could cross." },
+        { "target": "convinced", "correct": "fully believing something is true",  "distractors": ["fully doubting something", "lightly curious", "completely uninterested"],               "sentence": "Coaches were {convinced} the human frame had reached its limits." },
+        { "target": "trained",   "correct": "prepared through practice",          "distractors": ["avoided practice entirely", "destroyed equipment", "celebrated alone"],                  "sentence": "He {trained} on a public track between hospital shifts." },
+        { "target": "blustery",  "correct": "windy and rough",                    "distractors": ["calm and still", "warm and sunny", "dark and silent"],                                    "sentence": "On a {blustery} afternoon in May 1954, in front of a small crowd in Oxford." },
+        { "target": "shattered", "correct": "broke into pieces; broke through",  "distractors": ["carefully repaired", "left untouched", "kept hidden"],                                     "sentence": "Bannister had {shattered} the four-minute mile." },
+        { "target": "stunned",   "correct": "amazed almost beyond belief",        "distractors": ["completely bored", "barely noticed", "calmly accepted"],                                  "sentence": "Once Bannister proved it could be done, others {stunned} themselves by doing it too." },
+        { "target": "grasp",     "correct": "to fully understand",                 "distractors": ["to forget completely", "to reject angrily", "to ignore politely"],                       "sentence": "The barrier had been mental, and they could finally {grasp} that." },
+        { "target": "rapidly",   "correct": "very quickly",                       "distractors": ["very slowly", "in complete silence", "very softly"],                                       "sentence": "Records have fallen {rapidly} since." },
+        { "target": "ordinary",  "correct": "common and unremarkable",            "distractors": ["very rare and famous", "broken and unsafe", "secret and hidden"],                          "sentence": "Bannister's run, on an {ordinary} cinder track in front of a few hundred people." },
+        { "target": "lingers",   "correct": "stays in mind for a long time",      "distractors": ["disappears at once", "is forgotten quickly", "is loudly celebrated then dropped"],         "sentence": "Bannister's run still {lingers} as a small lesson." }
+      ]
     }
   ]
 }
