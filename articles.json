@@ -1,0 +1,50 @@
+{
+  "articles": [
+    {
+      "id": "octopus-mind",
+      "title": "The Mind in the Tentacles",
+      "eyebrow": "Science · Reading Practice",
+      "byline": "Adapted nonfiction · ~290 words",
+      "date": "May 3, 2026",
+      "vocab": {
+        "thought":     { "original": "thought",     "l5": "believed",   "l6": "assumed",     "l7": "presumed",       "l8": "postulated",   "l9": "surmised",       "l10": "conjectured" },
+        "special":     { "original": "special",     "l5": "unique",     "l6": "distinct",    "l7": "exclusive",      "l8": "singular",     "l9": "preeminent",     "l10": "incomparable" },
+        "cleverness":  { "original": "cleverness",  "l5": "smartness",  "l6": "wit",         "l7": "cunning",        "l8": "acumen",       "l9": "sagacity",       "l10": "perspicacity" },
+        "quietly":     { "original": "quietly",     "l5": "silently",   "l6": "subtly",      "l7": "discreetly",     "l8": "imperceptibly","l9": "surreptitiously","l10": "clandestinely" },
+        "broken":      { "original": "broken",      "l5": "changed",    "l6": "challenged",  "l7": "subverted",      "l8": "undermined",   "l9": "dismantled",     "l10": "confounded" },
+        "rule":        { "original": "rule",        "l5": "standard",   "l6": "principle",   "l7": "criterion",      "l8": "tenet",        "l9": "axiom",          "l10": "dogma" },
+        "solve":       { "original": "solve",       "l5": "figure out", "l6": "unravel",     "l7": "decipher",       "l8": "elucidate",    "l9": "disentangle",    "l10": "explicate" },
+        "clever":      { "original": "clever",      "l5": "smart",      "l6": "shrewd",      "l7": "ingenious",      "l8": "astute",       "l9": "perspicacious",  "l10": "sagacious" },
+        "strangest":   { "original": "strangest",   "l5": "oddest",     "l6": "unusual",     "l7": "peculiar",       "l8": "anomalous",    "l9": "aberrant",       "l10": "idiosyncratic" },
+        "thinking":    { "original": "thinking",    "l5": "reasoning",  "l6": "pondering",   "l7": "contemplating",  "l8": "deliberating", "l9": "ruminating",     "l10": "cogitating" },
+        "studying":    { "original": "studying",    "l5": "watching",   "l6": "examining",   "l7": "observing",      "l8": "scrutinizing", "l9": "appraising",     "l10": "dissecting" },
+        "hiding":      { "original": "hiding",      "l5": "covering",   "l6": "stashing",    "l7": "concealing",     "l8": "secreting",    "l9": "cloaking",       "l10": "sequestering" },
+        "strategy":    { "original": "strategy",    "l5": "plan",       "l6": "tactic",      "l7": "stratagem",      "l8": "gambit",       "l9": "artifice",       "l10": "machination" },
+        "understand":  { "original": "understand",  "l5": "grasp",      "l6": "perceive",    "l7": "discern",        "l8": "comprehend",   "l9": "apprehend",      "l10": "fathom" }
+      },
+      "paragraphs": [
+        "For most of scientific history, intelligence was {thought} to be the {special} property of creatures with backbones. Mammals, birds, and even some reptiles seemed to share a basic kind of {cleverness}, while everything else was assumed to run on instinct. The octopus has {quietly} {broken} that idea.",
+        "Octopuses are mollusks — closer relatives of clams than of any thinking animal we know. They have no skeleton, no central seat of consciousness in the way humans do, and a lifespan that rarely passes two years. By any reasonable {rule} of biology, they should not be smart. Yet they {solve} puzzles, open jars, escape from sealed tanks, and recognize individual human faces. They also seem to play, a behavior once thought to belong only to mammals and a few {clever} birds.",
+        "The {strangest} part of octopus intelligence is where it lives. Roughly two-thirds of an octopus's neurons are not in its brain but in its arms. Each arm can taste, touch, and decide on its own, then report back to the central brain. In a real sense, an octopus is a creature {thinking} in eight directions at once.",
+        "Researchers studying octopuses often describe a feeling that the animal is {studying} them back. Aquarium keepers report octopuses spraying water at workers they dislike, {hiding} food from cameras, and waiting for the lights to dim before trying to escape. These are not the actions of an instinct-driven machine.",
+        "The octopus reminds us that intelligence is not one thing. It is a {strategy} life has invented more than once, in forms we are only beginning to {understand}."
+      ],
+      "quizGroups": [
+        { "target": "thought",     "correct": "supposed something to be true without proof", "distractors": ["proved something beyond doubt", "firmly denied something", "loudly announced something"], "sentence": "For most of scientific history, intelligence was {thought} to be the {special} property of creatures with backbones." },
+        { "target": "special",     "correct": "unlike anything else; one of a kind",         "distractors": ["very common and ordinary", "shared by everyone equally", "broken or damaged"],         "sentence": "For most of scientific history, intelligence was {thought} to be the {special} property of creatures with backbones." },
+        { "target": "cleverness",  "correct": "sharp mental insight or intelligence",         "distractors": ["physical strength", "lack of any skill", "a cheerful, joking mood"],                  "sentence": "Mammals, birds, and even some reptiles seemed to share a basic kind of {cleverness}, while everything else was assumed to run on instinct." },
+        { "target": "quietly",     "correct": "without drawing attention",                    "distractors": ["very loudly and openly", "angrily and quickly", "carelessly and rudely"],              "sentence": "The octopus has {quietly} {broken} that idea." },
+        { "target": "broken",      "correct": "weakened or overturned an idea",               "distractors": ["firmly supported an idea", "loudly celebrated an idea", "carefully copied an idea"],   "sentence": "The octopus has {quietly} {broken} that idea." },
+        { "target": "rule",        "correct": "an accepted principle or standard",            "distractors": ["a forgotten mistake", "a rare exception", "a personal opinion"],                       "sentence": "By any reasonable {rule} of biology, they should not be smart." },
+        { "target": "solve",       "correct": "to figure out or make clear",                  "distractors": ["to hide or cover up", "to leave alone untouched", "to break into pieces"],            "sentence": "Yet they {solve} puzzles, open jars, escape from sealed tanks, and recognize individual human faces." },
+        { "target": "clever",      "correct": "sharp-minded and quick to understand",         "distractors": ["easily tricked or fooled", "lazy and slow to learn", "loud and easily distracted"], "sentence": "They also seem to play, a behavior once thought to belong only to mammals and a few {clever} birds." },
+        { "target": "strangest",   "correct": "unusual or out of the ordinary",               "distractors": ["common and expected", "easy and simple", "loud and rude"],                            "sentence": "The {strangest} part of octopus intelligence is where it lives." },
+        { "target": "thinking",    "correct": "considering something carefully",              "distractors": ["ignoring entirely", "shouting loudly", "running away from"],                          "sentence": "In a real sense, an octopus is a creature {thinking} in eight directions at once." },
+        { "target": "studying",    "correct": "looking at something closely",                 "distractors": ["hiding from view", "destroying quickly", "ignoring on purpose"],                      "sentence": "Researchers studying octopuses often describe a feeling that the animal is {studying} them back." },
+        { "target": "hiding",      "correct": "keeping something out of sight",               "distractors": ["showing it openly", "destroying it completely", "sharing it widely"],                "sentence": "Aquarium keepers report octopuses spraying water at workers they dislike, {hiding} food from cameras, and waiting for the lights to dim before trying to escape." },
+        { "target": "strategy",    "correct": "a planned scheme or method",                   "distractors": ["an honest mistake", "a happy accident", "a casual joke"],                             "sentence": "It is a {strategy} life has invented more than once, in forms we are only beginning to {understand}." },
+        { "target": "understand",  "correct": "to grasp the meaning of something",            "distractors": ["to forget completely", "to reject quickly", "to speak loudly"],                        "sentence": "It is a {strategy} life has invented more than once, in forms we are only beginning to {understand}." }
+      ]
+    }
+  ]
+}

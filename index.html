@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Notes</title>
+<style>
+  :root {
+    --bg: #f4ecd8;
+    --paper: #fffaf0;
+    --ink: #2b2620;
+    --ink-soft: #5a4f43;
+    --rule: #d9c7a3;
+    --accent: #b8860b;
+    --highlight: #fff3a8;
+    --sidebar: #ebe0c4;
+    --shadow: 0 6px 24px rgba(60, 40, 10, 0.12);
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  .app {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    height: 100vh;
+    max-width: 1100px;
+    margin: 0 auto;
+    background: var(--paper);
+    box-shadow: var(--shadow);
+  }
+  aside {
+    background: var(--sidebar);
+    border-right: 1px solid var(--rule);
+    overflow-y: auto;
+    padding: 24px 0;
+  }
+  aside h1 {
+    margin: 0 24px 16px;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+  .note-list { list-style: none; margin: 0; padding: 0; }
+  .note-list li {
+    padding: 14px 24px;
+    border-left: 3px solid var(--accent);
+    background: var(--paper);
+  }
+  .note-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .note-meta { font-size: 12px; color: var(--ink-soft); font-style: italic; }
+
+  main {
+    overflow-y: auto;
+    background:
+      repeating-linear-gradient(to bottom, transparent 0 31px, rgba(184, 134, 11, 0.08) 31px 32px),
+      var(--paper);
+    line-height: 32px;
+  }
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 32px;
+    background: rgba(255, 250, 240, 0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .level-group {
+    display: none;
+    align-items: center;
+    gap: 14px;
+  }
+  .level-group.visible { display: flex; }
+  .points {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+  }
+  .points-label {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+  .points-value {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 32px;
+    text-align: right;
+    display: inline-block;
+  }
+  .points-value.bumped { animation: pointBump 700ms ease; }
+  @keyframes pointBump {
+    0%   { transform: scale(1); }
+    25%  { transform: scale(1.35); color: #4a8c4a; }
+    100% { transform: scale(1); color: var(--accent); }
+  }
+
+  .flying-points {
+    position: fixed;
+    pointer-events: none;
+    z-index: 100;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 14px;
+    font-weight: 700;
+    background: #4a8c4a;
+    color: #ffffff;
+    padding: 4px 9px;
+    border-radius: 4px;
+    box-shadow: 0 3px 12px rgba(74, 140, 74, 0.45);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: transform 220ms ease, opacity 200ms ease;
+    will-change: transform, opacity;
+  }
+  .flying-points.shown {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .flying-points.flying {
+    transform: translate(var(--dx), var(--dy)) scale(0.55);
+    opacity: 0;
+    transition: transform 650ms cubic-bezier(0.45, 0, 0.55, 1), opacity 350ms ease 300ms;
+  }
+  .topbar .label {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+  .level-switch {
+    display: inline-flex;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--paper);
+  }
+  .level-switch button {
+    font-family: inherit;
+    font-size: 14px;
+    padding: 6px 14px;
+    border: none;
+    background: transparent;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: background 120ms ease, color 120ms ease;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .level-switch button + button { border-left: 1px solid var(--rule); }
+  .level-switch button:hover { background: rgba(184, 134, 11, 0.08); }
+  .level-switch button.active {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .level-switch.locked {
+    pointer-events: none;
+    opacity: 0.45;
+    filter: grayscale(1);
+  }
+  .lock-icon {
+    display: none;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+  .lock-icon.visible { display: inline-flex; }
+  .lock-icon svg { width: 14px; height: 14px; }
+
+  .reading-area {
+    padding: 40px 72px 96px;
+  }
+  article { max-width: 640px; margin: 0 auto; }
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  article h1 {
+    font-size: 34px;
+    line-height: 42px;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .byline {
+    font-size: 14px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed var(--rule);
+  }
+  article p { margin: 0 0 16px; font-size: 17px; }
+
+  .vocab {
+    transition: background-color 300ms ease, color 300ms ease;
+    border-radius: 2px;
+    padding: 0 2px;
+    cursor: help;
+  }
+  .vocab.swapped {
+    background-color: var(--highlight);
+    color: #5a4500;
+    font-weight: 600;
+  }
+  .badge {
+    display: inline-block;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 10px;
+    line-height: 1;
+    padding: 2px 4px;
+    margin-left: 2px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 3px;
+    vertical-align: super;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.15);
+  }
+
+  .actions {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  button.primary {
+    font-family: inherit;
+    font-size: 15px;
+    padding: 10px 22px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: background 150ms ease, transform 80ms ease;
+  }
+  button.primary:hover { background: #443a2c; }
+  button.primary:active { transform: translateY(1px); }
+  .hint { font-size: 13px; color: var(--ink-soft); font-style: italic; }
+
+  button.ghost {
+    font-family: inherit;
+    font-size: 15px;
+    padding: 10px 22px;
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid var(--ink);
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+  }
+  button.ghost:hover { background: rgba(43, 38, 32, 0.06); }
+  #quizBtn { display: none; }
+  #quizBtn.visible { display: inline-block; }
+
+  .quiz-area { display: none; padding: 56px 72px 96px; }
+  .quiz-area.active { display: block; }
+  .quiz { max-width: 640px; margin: 0 auto; }
+  .quiz-progress {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .quiz-question { font-size: 19px; line-height: 30px; margin-bottom: 12px; }
+  .quiz-question b {
+    background: var(--highlight);
+    padding: 0 4px;
+    border-radius: 2px;
+    color: #5a4500;
+    font-weight: 700;
+  }
+  .quiz-prompt { font-size: 14px; color: var(--ink-soft); font-style: italic; margin-bottom: 20px; }
+  .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+  .quiz-option {
+    font-family: inherit;
+    font-size: 16px;
+    padding: 14px 18px;
+    text-align: left;
+    background: var(--paper);
+    border: 1.5px solid var(--rule);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 120ms ease, background 120ms ease;
+    color: var(--ink);
+  }
+  .quiz-option:hover:not(:disabled) {
+    border-color: var(--accent);
+    background: rgba(184, 134, 11, 0.06);
+  }
+  .quiz-option.correct {
+    border-color: #4a8c4a;
+    background: #e8f5e8;
+    color: #2a5a2a;
+    font-weight: 600;
+  }
+  .quiz-option.incorrect {
+    border-color: #b04848;
+    background: #f8e8e8;
+    color: #6a2a2a;
+    font-weight: 600;
+  }
+  .quiz-feedback {
+    margin-top: 18px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    font-style: italic;
+    min-height: 22px;
+  }
+  .quiz-controls { margin-top: 24px; display: flex; gap: 10px; }
+  .quiz-score { text-align: center; padding: 40px 0; }
+  .quiz-score-number { font-size: 64px; font-weight: 700; color: var(--accent); line-height: 1; }
+  .quiz-score-text { font-size: 17px; color: var(--ink-soft); margin: 12px 0 28px; }
+
+  @media (max-width: 760px) {
+    .app { grid-template-columns: 1fr; }
+    aside { display: none; }
+    .reading-area { padding: 24px 20px 64px; }
+    .topbar { padding: 12px 20px; }
+  }
+</style>
+</head>
+<body>
+  <div class="app">
+    <aside>
+      <h1>Notes</h1>
+      <ul class="note-list">
+        <li>
+          <div class="note-title">The Mind in the Tentacles</div>
+          <div class="note-meta">May 3, 2026 · Reading practice</div>
+        </li>
+      </ul>
+    </aside>
+    <main>
+      <div class="topbar">
+        <div class="level-group" id="levelGroup">
+          <span class="label">Vocab Level</span>
+          <div class="level-switch" id="levelSwitch">
+            <button data-level="5">5</button>
+            <button data-level="6">6</button>
+            <button data-level="7" class="active">7</button>
+            <button data-level="8">8</button>
+            <button data-level="9">9</button>
+            <button data-level="10">10</button>
+          </div>
+          <span class="lock-icon" id="lockIcon" aria-label="Locked during quiz">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="11" width="16" height="10" rx="2"/>
+              <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+            </svg>
+            Locked
+          </span>
+        </div>
+        <div class="points" title="Points earned across all quizzes">
+          <span class="points-label">Points</span>
+          <span class="points-value" id="pointsValue">0</span>
+        </div>
+      </div>
+
+      <div class="reading-area">
+        <article>
+          <div class="eyebrow" id="articleEyebrow"></div>
+          <h1 id="articleTitle"></h1>
+          <div class="byline" id="articleByline"></div>
+          <div id="articleBody"></div>
+
+          <div class="actions">
+            <button id="toggleBtn" class="primary">Finish Reading</button>
+            <button id="quizBtn" class="ghost">Take Quiz</button>
+            <span id="hint" class="hint">When you're done, swap key words for higher-level vocabulary.</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="quiz-area" id="quizArea">
+        <div class="quiz" id="quiz"></div>
+      </div>
+    </main>
+  </div>
+
+<script>
+(async function() {
+  // ===== Fetch article database =====
+  // Hosted on GitHub: replace with your raw URL once pushed, e.g.
+  //   https://raw.githubusercontent.com/USER/REPO/main/articles.json
+  // or jsDelivr: https://cdn.jsdelivr.net/gh/USER/REPO/articles.json
+  const ARTICLES_URL = "./articles.json";
+
+  function escapeAttr(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+  }
+
+  function renderArticle(article) {
+    document.getElementById("articleEyebrow").textContent = article.eyebrow;
+    document.getElementById("articleTitle").textContent = article.title;
+    document.getElementById("articleByline").textContent = article.byline;
+
+    const body = document.getElementById("articleBody");
+    body.innerHTML = article.paragraphs.map(p => {
+      const html = p.replace(/\{(\w+)\}/g, (_, key) => {
+        const v = article.vocab[key];
+        if (!v) return key;
+        return '<span class="vocab" data-key="' + key + '"' +
+          ' data-l5="' + escapeAttr(v.l5) + '"' +
+          ' data-l6="' + escapeAttr(v.l6) + '"' +
+          ' data-l7="' + escapeAttr(v.l7) + '"' +
+          ' data-l8="' + escapeAttr(v.l8) + '"' +
+          ' data-l9="' + escapeAttr(v.l9) + '"' +
+          ' data-l10="' + escapeAttr(v.l10) + '">' + v.original + '</span>';
+      });
+      return '<p>' + html + '</p>';
+    }).join("");
+
+    const sidebarTitle = document.querySelector(".note-list .note-title");
+    if (sidebarTitle) sidebarTitle.textContent = article.title;
+  }
+
+  let articleData;
+  try {
+    const res = await fetch(ARTICLES_URL);
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    articleData = await res.json();
+  } catch (e) {
+    document.getElementById("articleBody").innerHTML =
+      '<p style="color:#b04848">Could not load articles.json (' + e.message +
+      ').<br>If running locally, serve the folder with "python3 -m http.server 8080" and open <code>http://localhost:8080</code>.</p>';
+    return;
+  }
+
+  const currentArticle = articleData.articles[0];
+  renderArticle(currentArticle);
+
+  // ===== Existing app logic =====
+  const btn = document.getElementById("toggleBtn");
+  const hint = document.getElementById("hint");
+  const levelSwitch = document.getElementById("levelSwitch");
+  const vocabSpans = document.querySelectorAll(".vocab");
+
+  // Cache the original text so we can always restore it.
+  vocabSpans.forEach(s => { s.dataset.original = s.textContent; });
+
+  let swapped = false;
+  let level = 7;
+
+  function wordForLevel(span, lvl) {
+    return span.dataset["l" + lvl];
+  }
+
+  function renderSpans() {
+    vocabSpans.forEach(s => {
+      if (swapped) {
+        const advanced = wordForLevel(s, level);
+        s.innerHTML = `${advanced}<sup class="badge">+${level}</sup>`;
+        s.classList.add("swapped");
+        s.title = `Original: ${s.dataset.original}`;
+      } else {
+        s.textContent = s.dataset.original;
+        s.classList.remove("swapped");
+        s.title = `Higher-level (L${level}): ${wordForLevel(s, level)}`;
+      }
+    });
+  }
+
+  const levelGroup = document.getElementById("levelGroup");
+
+  btn.addEventListener("click", () => {
+    swapped = !swapped;
+    renderSpans();
+    levelGroup.classList.toggle("visible", swapped);
+    btn.textContent = swapped ? "Show Original" : "Finish Reading";
+    hint.textContent = swapped
+      ? `Showing Level ${level} vocabulary. Hover a word to see the original.`
+      : "When you're done, swap key words for higher-level vocabulary.";
+  });
+
+  levelSwitch.addEventListener("click", (e) => {
+    const target = e.target.closest("button[data-level]");
+    if (!target) return;
+    levelSwitch.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+    target.classList.add("active");
+    level = parseInt(target.dataset.level, 10);
+    renderSpans(); // re-render whether swapped or not (updates tooltips/badges)
+    if (swapped) {
+      hint.textContent = `Showing Level ${level} vocabulary. Hover a word to see the original.`;
+    }
+  });
+
+  // Initial tooltips so hover works before clicking too.
+  renderSpans();
+
+  // ---------- Points ----------
+  const POINTS_KEY = "notesAppPoints";
+  const pointsEl = document.getElementById("pointsValue");
+  let totalPoints = parseInt(localStorage.getItem(POINTS_KEY) || "0", 10);
+  pointsEl.textContent = totalPoints;
+
+  function awardPoints(n) {
+    totalPoints += n;
+    localStorage.setItem(POINTS_KEY, String(totalPoints));
+    pointsEl.textContent = totalPoints;
+    pointsEl.classList.remove("bumped");
+    void pointsEl.offsetWidth; // restart animation
+    pointsEl.classList.add("bumped");
+  }
+
+  function flyPointsFromTo(fromEl, points) {
+    const fromRect = fromEl.getBoundingClientRect();
+    const toRect = pointsEl.getBoundingClientRect();
+
+    // Start: top-right corner of the answer button.
+    const startX = fromRect.right - 36;
+    const startY = fromRect.top - 12;
+    // End: middle of the points counter.
+    const endX = toRect.left + toRect.width / 2 - 16;
+    const endY = toRect.top + toRect.height / 2 - 10;
+
+    const fly = document.createElement("div");
+    fly.className = "flying-points";
+    fly.textContent = `+${points}`;
+    fly.style.left = startX + "px";
+    fly.style.top = startY + "px";
+    document.body.appendChild(fly);
+
+    // Phase 1: pop in at the answer corner.
+    requestAnimationFrame(() => fly.classList.add("shown"));
+
+    // Phase 2: brief pause, then fly to the counter.
+    setTimeout(() => {
+      fly.style.setProperty("--dx", (endX - startX) + "px");
+      fly.style.setProperty("--dy", (endY - startY) + "px");
+      fly.classList.add("flying");
+    }, 320);
+
+    // Phase 3: badge lands → bump the counter and clean up.
+    setTimeout(() => {
+      awardPoints(points);
+      fly.remove();
+    }, 320 + 600);
+  }
+
+  // ---------- Quiz ----------
+  const quizBtn = document.getElementById("quizBtn");
+  const quizArea = document.getElementById("quizArea");
+  const readingArea = document.querySelector(".reading-area");
+  const quizEl = document.getElementById("quiz");
+
+  // Show/hide Take Quiz button alongside the swap state.
+  const origBtnHandler = btn.onclick;
+  function syncQuizBtn() { quizBtn.classList.toggle("visible", swapped); }
+  btn.addEventListener("click", syncQuizBtn);
+
+  // Map vocab keys → their span so we can look up level forms.
+  const vocabMap = {};
+  vocabSpans.forEach(s => { vocabMap[s.dataset.key] = s; });
+
+  function wordAt(key, lvl) {
+    const s = vocabMap[key];
+    return s ? s.dataset["l" + lvl] : key;
+  }
+
+  // Quiz groups come straight from the fetched article (articles.json).
+  const quizGroups = currentArticle.quizGroups;
+  /* legacy inline copy kept commented for reference:
+  const _legacyQuizGroups = [
+    {
+      target: "thought",
+      correct: "supposed something to be true without proof",
+      distractors: ["proved something beyond doubt", "firmly denied something", "loudly announced something"],
+      sentence: "For most of scientific history, intelligence was {thought} to be the {special} property of creatures with backbones."
+    },
+    {
+      target: "special",
+      correct: "unlike anything else; one of a kind",
+      distractors: ["very common and ordinary", "shared by everyone equally", "broken or damaged"],
+      sentence: "For most of scientific history, intelligence was {thought} to be the {special} property of creatures with backbones."
+    },
+    {
+      target: "cleverness",
+      correct: "sharp mental insight or intelligence",
+      distractors: ["physical strength", "lack of any skill", "a cheerful, joking mood"],
+      sentence: "Mammals, birds, and even some reptiles seemed to share a basic kind of {cleverness}, while everything else was assumed to run on instinct."
+    },
+    {
+      target: "quietly",
+      correct: "without drawing attention",
+      distractors: ["very loudly and openly", "angrily and quickly", "carelessly and rudely"],
+      sentence: "The octopus has {quietly} {broken} that idea."
+    },
+    {
+      target: "broken",
+      correct: "weakened or overturned an idea",
+      distractors: ["firmly supported an idea", "loudly celebrated an idea", "carefully copied an idea"],
+      sentence: "The octopus has {quietly} {broken} that idea."
+    },
+    {
+      target: "rule",
+      correct: "an accepted principle or standard",
+      distractors: ["a forgotten mistake", "a rare exception", "a personal opinion"],
+      sentence: "By any reasonable {rule} of biology, they should not be smart."
+    },
+    {
+      target: "solve",
+      correct: "to figure out or make clear",
+      distractors: ["to hide or cover up", "to leave alone untouched", "to break into pieces"],
+      sentence: "Yet they {solve} puzzles, open jars, escape from sealed tanks, and recognize individual human faces."
+    },
+    {
+      target: "clever",
+      correct: "sharp-minded and quick to understand",
+      distractors: ["easily tricked or fooled", "lazy and slow to learn", "loud and easily distracted"],
+      sentence: "They also seem to play, a behavior once thought to belong only to mammals and a few {clever} birds."
+    },
+    {
+      target: "strangest",
+      correct: "unusual or out of the ordinary",
+      distractors: ["common and expected", "easy and simple", "loud and rude"],
+      sentence: "The {strangest} part of octopus intelligence is where it lives."
+    },
+    {
+      target: "thinking",
+      correct: "considering something carefully",
+      distractors: ["ignoring entirely", "shouting loudly", "running away from"],
+      sentence: "In a real sense, an octopus is a creature {thinking} in eight directions at once."
+    },
+    {
+      target: "studying",
+      correct: "looking at something closely",
+      distractors: ["hiding from view", "destroying quickly", "ignoring on purpose"],
+      sentence: "Researchers studying octopuses often describe a feeling that the animal is {studying} them back."
+    },
+    {
+      target: "hiding",
+      correct: "keeping something out of sight",
+      distractors: ["showing it openly", "destroying it completely", "sharing it widely"],
+      sentence: "Aquarium keepers report octopuses spraying water at workers they dislike, {hiding} food from cameras, and waiting for the lights to dim before trying to escape."
+    },
+    {
+      target: "strategy",
+      correct: "a planned scheme or method",
+      distractors: ["an honest mistake", "a happy accident", "a casual joke"],
+      sentence: "It is a {strategy} life has invented more than once, in forms we are only beginning to {understand}."
+    },
+    {
+      target: "understand",
+      correct: "to grasp the meaning of something",
+      distractors: ["to forget completely", "to reject quickly", "to speak loudly"],
+      sentence: "It is a {strategy} life has invented more than once, in forms we are only beginning to {understand}."
+    }
+  ]; */
+
+  function buildQuizSentence(template, target, lvl) {
+    return template.replace(/\{(\w+)\}/g, (_, key) => {
+      const word = wordAt(key, lvl);
+      return key === target ? `<b>${word}</b>` : word;
+    });
+  }
+
+  let questions = [];
+  let qIndex = 0;
+  let qScore = 0;
+
+  function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  const lockIcon = document.getElementById("lockIcon");
+
+  function lockLevels(locked) {
+    levelSwitch.classList.toggle("locked", locked);
+    lockIcon.classList.toggle("visible", locked);
+  }
+
+  function startQuiz() {
+    questions = shuffle(quizGroups).slice(0, 8);
+    qIndex = 0;
+    qScore = 0;
+    readingArea.style.display = "none";
+    quizArea.classList.add("active");
+    lockLevels(true);
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    const q = questions[qIndex];
+    const sentence = buildQuizSentence(q.sentence, q.target, level);
+    const options = shuffle([q.correct, ...q.distractors]);
+
+    quizEl.innerHTML = `
+      <div class="quiz-progress">Question ${qIndex + 1} of ${questions.length} · Level ${level}</div>
+      <div class="quiz-question">${sentence}</div>
+      <div class="quiz-prompt">What does the highlighted word most nearly mean?</div>
+      <div class="quiz-options">
+        ${options.map((opt, i) => `<button class="quiz-option" data-i="${i}">${opt}</button>`).join("")}
+      </div>
+      <div class="quiz-feedback" id="quizFeedback"></div>
+      <div class="quiz-controls" id="quizControls"></div>
+    `;
+
+    const optionBtns = quizEl.querySelectorAll(".quiz-option");
+    optionBtns.forEach((b, i) => {
+      b.addEventListener("click", () => handleAnswer(b, options[i], q.correct, optionBtns));
+    });
+  }
+
+  function handleAnswer(clickedBtn, picked, correct, allBtns) {
+    allBtns.forEach(b => {
+      b.disabled = true;
+      const text = b.textContent;
+      if (text === correct) b.classList.add("correct");
+      else if (b === clickedBtn) b.classList.add("incorrect");
+    });
+
+    const feedback = document.getElementById("quizFeedback");
+    if (picked === correct) {
+      qScore++;
+      feedback.textContent = `Correct. +${level} points`;
+      flyPointsFromTo(clickedBtn, level);
+    } else {
+      feedback.textContent = `Not quite — the answer was: "${correct}"`;
+    }
+
+    const controls = document.getElementById("quizControls");
+    const next = document.createElement("button");
+    next.className = "primary";
+    next.textContent = qIndex === questions.length - 1 ? "See Score" : "Next Question";
+    next.addEventListener("click", () => {
+      qIndex++;
+      if (qIndex >= questions.length) showScore();
+      else renderQuestion();
+    });
+    controls.appendChild(next);
+  }
+
+  function scoreMessage(s, total) {
+    const pct = s / total;
+    if (pct === 1) return "Perfect — you've got these words cold.";
+    if (pct >= 0.75) return "Strong work. A couple to review.";
+    if (pct >= 0.5) return "Halfway there. Re-read the article and try again.";
+    return "Worth another pass — context is the best way to lock these in.";
+  }
+
+  function showScore() {
+    quizEl.innerHTML = `
+      <div class="quiz-score">
+        <div class="quiz-score-number">${qScore} / ${questions.length}</div>
+        <div class="quiz-score-text">${scoreMessage(qScore, questions.length)}</div>
+        <div class="quiz-controls" style="justify-content: center;">
+          <button class="primary" id="retryQuiz">Try Again</button>
+          <button class="ghost" id="backToArticle">Back to Article</button>
+        </div>
+      </div>
+    `;
+    document.getElementById("retryQuiz").addEventListener("click", startQuiz);
+    document.getElementById("backToArticle").addEventListener("click", () => {
+      quizArea.classList.remove("active");
+      readingArea.style.display = "";
+      lockLevels(false);
+    });
+  }
+
+  quizBtn.addEventListener("click", startQuiz);
+})();
+</script>
+</body>
+</html>
