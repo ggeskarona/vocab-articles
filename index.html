@@ -410,10 +410,10 @@
 <script>
 (async function() {
   // ===== Fetch article database =====
-  // Hosted on GitHub: replace with your raw URL once pushed, e.g.
-  //   https://raw.githubusercontent.com/USER/REPO/main/articles.json
-  // or jsDelivr: https://cdn.jsdelivr.net/gh/USER/REPO/articles.json
-  const ARTICLES_URL = "./articles.json";
+  // Hosted on GitHub. To edit articles: push to ggeskarona/vocab-articles.
+  // jsDelivr alternate (CDN-cached, ~12h delay):
+  //   https://cdn.jsdelivr.net/gh/ggeskarona/vocab-articles/articles.json
+  const ARTICLES_URL = "https://raw.githubusercontent.com/ggeskarona/vocab-articles/main/articles.json";
 
   function escapeAttr(s) {
     return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;");
