@@ -447,15 +447,20 @@
     const body = document.getElementById("articleBody");
     body.innerHTML = article.paragraphs.map(p => {
       const html = p.replace(/\{(\w+)\}/g, (_, key) => {
-        const v = article.vocab[key];
+        // Allow {Capitalized} placeholders at sentence starts.
+        const cap = key.charAt(0) !== key.charAt(0).toLowerCase();
+        const k = cap ? key.charAt(0).toLowerCase() + key.slice(1) : key;
+        const v = article.vocab[k];
         if (!v) return key;
-        return '<span class="vocab" data-key="' + key + '"' +
+        const displayOrig = cap ? v.original.charAt(0).toUpperCase() + v.original.slice(1) : v.original;
+        return '<span class="vocab" data-key="' + k + '"' +
+          (cap ? ' data-cap="1"' : '') +
           ' data-l5="' + escapeAttr(v.l5) + '"' +
           ' data-l6="' + escapeAttr(v.l6) + '"' +
           ' data-l7="' + escapeAttr(v.l7) + '"' +
           ' data-l8="' + escapeAttr(v.l8) + '"' +
           ' data-l9="' + escapeAttr(v.l9) + '"' +
-          ' data-l10="' + escapeAttr(v.l10) + '">' + v.original + '</span>';
+          ' data-l10="' + escapeAttr(v.l10) + '">' + displayOrig + '</span>';
       });
       return '<p>' + html + '</p>';
     }).join("");
@@ -490,7 +495,11 @@
   let level = 7;
 
   function wordForLevel(span, lvl) {
-    return span.dataset["l" + lvl];
+    let w = span.dataset["l" + lvl];
+    if (span.dataset.cap === "1" && w) {
+      w = w.charAt(0).toUpperCase() + w.slice(1);
+    }
+    return w;
   }
 
   function renderSpans() {
@@ -700,8 +709,11 @@
 
   function buildQuizSentence(template, target, lvl) {
     return template.replace(/\{(\w+)\}/g, (_, key) => {
-      const word = wordAt(key, lvl);
-      return key === target ? `<b>${word}</b>` : word;
+      const cap = key.charAt(0) !== key.charAt(0).toLowerCase();
+      const k = cap ? key.charAt(0).toLowerCase() + key.slice(1) : key;
+      let word = wordAt(k, lvl);
+      if (cap && word) word = word.charAt(0).toUpperCase() + word.slice(1);
+      return k === target ? `<b>${word}</b>` : word;
     });
   }
 
