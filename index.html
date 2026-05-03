@@ -51,8 +51,23 @@
   .note-list { list-style: none; margin: 0; padding: 0; }
   .note-list li {
     padding: 14px 24px;
-    border-left: 3px solid var(--accent);
+    border-left: 3px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    transition: background 120ms ease, border-color 120ms ease;
+    position: relative;
+  }
+  .note-list li:hover { background: rgba(255, 250, 240, 0.55); }
+  .note-list li.active {
     background: var(--paper);
+    border-left-color: var(--accent);
+  }
+  .note-list li.completed { opacity: 0.78; }
+  .note-list li.completed .note-title::before {
+    content: "✓ ";
+    color: #4a8c4a;
+    font-weight: 700;
+    margin-right: 2px;
   }
   .note-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
   .note-meta { font-size: 12px; color: var(--ink-soft); font-style: italic; }
@@ -353,12 +368,7 @@
   <div class="app">
     <aside>
       <h1>Notes</h1>
-      <ul class="note-list">
-        <li>
-          <div class="note-title">The Mind in the Tentacles</div>
-          <div class="note-meta">May 3, 2026 · Reading practice</div>
-        </li>
-      </ul>
+      <ul class="note-list" id="noteList"></ul>
     </aside>
     <main>
       <div class="topbar">
@@ -440,8 +450,6 @@
       return '<p>' + html + '</p>';
     }).join("");
 
-    const sidebarTitle = document.querySelector(".note-list .note-title");
-    if (sidebarTitle) sidebarTitle.textContent = article.title;
   }
 
   let articleData;
@@ -456,14 +464,14 @@
     return;
   }
 
-  const currentArticle = articleData.articles[0];
+  let currentArticle = articleData.articles[0];
   renderArticle(currentArticle);
 
   // ===== Existing app logic =====
   const btn = document.getElementById("toggleBtn");
   const hint = document.getElementById("hint");
   const levelSwitch = document.getElementById("levelSwitch");
-  const vocabSpans = document.querySelectorAll(".vocab");
+  let vocabSpans = document.querySelectorAll(".vocab");
 
   // Cache the original text so we can always restore it.
   vocabSpans.forEach(s => { s.dataset.original = s.textContent; });
@@ -579,7 +587,7 @@
   btn.addEventListener("click", syncQuizBtn);
 
   // Map vocab keys → their span so we can look up level forms.
-  const vocabMap = {};
+  let vocabMap = {};
   vocabSpans.forEach(s => { vocabMap[s.dataset.key] = s; });
 
   function wordAt(key, lvl) {
@@ -588,7 +596,7 @@
   }
 
   // Quiz groups come straight from the fetched article (articles.json).
-  const quizGroups = currentArticle.quizGroups;
+  let quizGroups = currentArticle.quizGroups;
   /* legacy inline copy kept commented for reference:
   const _legacyQuizGroups = [
     {
@@ -774,12 +782,17 @@
   }
 
   function showScore() {
+    markCompleted(currentArticle.id);
+    renderSidebar();
+    const nextArticle = findNextArticle();
+
     quizEl.innerHTML = `
       <div class="quiz-score">
         <div class="quiz-score-number">${qScore} / ${questions.length}</div>
         <div class="quiz-score-text">${scoreMessage(qScore, questions.length)}</div>
         <div class="quiz-controls" style="justify-content: center;">
           <button class="primary" id="retryQuiz">Try Again</button>
+          ${nextArticle ? '<button class="primary" id="nextArticle">Next Article →</button>' : ''}
           <button class="ghost" id="backToArticle">Back to Article</button>
         </div>
       </div>
@@ -790,9 +803,82 @@
       readingArea.style.display = "";
       lockLevels(false);
     });
+    if (nextArticle) {
+      document.getElementById("nextArticle").addEventListener("click", () => {
+        loadArticleById(nextArticle.id);
+      });
+    }
   }
 
   quizBtn.addEventListener("click", startQuiz);
+
+  // ===== Multi-article sidebar + completion =====
+  const COMPLETED_KEY = "notesAppCompleted";
+  function getCompleted() {
+    try { return new Set(JSON.parse(localStorage.getItem(COMPLETED_KEY) || "[]")); }
+    catch { return new Set(); }
+  }
+  function markCompleted(id) {
+    const s = getCompleted();
+    s.add(id);
+    localStorage.setItem(COMPLETED_KEY, JSON.stringify([...s]));
+  }
+  function findNextArticle() {
+    const idx = articleData.articles.findIndex(a => a.id === currentArticle.id);
+    return articleData.articles[idx + 1] || null;
+  }
+
+  const noteList = document.getElementById("noteList");
+  function renderSidebar() {
+    const completed = getCompleted();
+    noteList.innerHTML = articleData.articles.map(a => {
+      const cls = [];
+      if (a.id === currentArticle.id) cls.push("active");
+      if (completed.has(a.id)) cls.push("completed");
+      const genre = a.eyebrow.split("·")[0].trim();
+      return '<li class="' + cls.join(" ") + '" data-id="' + a.id + '">' +
+        '<div class="note-title">' + a.title + '</div>' +
+        '<div class="note-meta">' + a.date + ' · ' + genre + '</div>' +
+      '</li>';
+    }).join("");
+    noteList.querySelectorAll("li").forEach(li => {
+      li.addEventListener("click", () => {
+        if (li.dataset.id === currentArticle.id) return;
+        loadArticleById(li.dataset.id);
+      });
+    });
+  }
+
+  function loadArticleById(id) {
+    const article = articleData.articles.find(a => a.id === id);
+    if (!article) return;
+    currentArticle = article;
+    swapped = false;
+
+    renderArticle(article);
+
+    // Refresh vocab references to point at newly rendered spans.
+    vocabSpans = document.querySelectorAll(".vocab");
+    vocabSpans.forEach(s => { s.dataset.original = s.textContent; });
+    vocabMap = {};
+    vocabSpans.forEach(s => { vocabMap[s.dataset.key] = s; });
+    quizGroups = article.quizGroups;
+
+    // Reset UI to a fresh-article state.
+    btn.textContent = "Finish Reading";
+    hint.textContent = "When you're done, swap key words for higher-level vocabulary.";
+    levelGroup.classList.remove("visible");
+    quizBtn.classList.remove("visible");
+    quizArea.classList.remove("active");
+    readingArea.style.display = "";
+    lockLevels(false);
+
+    renderSpans();
+    renderSidebar();
+    document.querySelector("main").scrollTop = 0;
+  }
+
+  renderSidebar();
 })();
 </script>
 </body>
